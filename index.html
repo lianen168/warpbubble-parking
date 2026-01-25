@@ -3,428 +3,355 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WarpBubble | The Future of Spacetime</title>
+    <title>WarpBubble | Advanced AI & Space Assets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- 引入 Orbitron (科幻标题) 和 Rajdhani (技术正文) -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-deep: #03050a;
-            --ai-blue: #00f3ff;
-            --space-violet: #bc13fe;
-            --text-main: #ffffff;
-            --text-muted: #a0a0b0;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --font-mono: 'Space Mono', monospace;
-            --font-sans: 'Inter', sans-serif;
+            --bg-deep: #020204;
+            --cyan: #00f3ff;
+            --cyan-dim: rgba(0, 243, 255, 0.2);
+            --purple: #bc13fe;
+            --purple-dim: rgba(188, 19, 254, 0.2);
+            --white-glow: rgba(255, 255, 255, 0.8);
+            --glass: rgba(10, 15, 30, 0.6);
+            --border: rgba(255, 255, 255, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-deep);
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            line-height: 1.6;
+            color: #ffffff;
+            font-family: 'Rajdhani', sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated Starfield Background */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background: 
-                radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-        }
-        
-        .stars::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-            background-size: 550px 550px, 350px 350px, 250px 250px;
-            background-position: 0 0, 40px 60px, 130px 270px;
-            animation: star-move 200s linear infinite;
-        }
-
-        @keyframes star-move {
-            from { transform: translateY(0); }
-            to { transform: translateY(-500px); }
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 4rem;
         }
 
-        /* Hero Section */
-        header {
-            text-align: center;
-            padding-top: 2rem;
-            animation: fade-in 1.5s ease-out;
+        /* === 动态背景 === */
+        .cosmos-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 50% 120%, #1a0b2e 0%, #000 70%);
+        }
+        .stars {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 1.5px),
+                radial-gradient(white, rgba(255,255,255,.1) 1px, transparent 1.5px);
+            background-size: 500px 500px, 300px 300px;
+            animation: cosmic-drift 100s linear infinite;
+            opacity: 0.7;
+        }
+        @keyframes cosmic-drift { from { transform: translateY(0); } to { transform: translateY(-500px); } }
+
+        /* === 布局容器 === */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            flex-grow: 1;
         }
 
-        h1 {
-            font-family: var(--font-mono);
-            font-size: clamp(2rem, 6vw, 4rem);
-            font-weight: 700;
+        /* === 核心 Logo 设计 (CSS Magic) === */
+        header { text-align: center; margin-bottom: 4rem; }
+
+        .logo-wrapper {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 10vw, 5.5rem);
+            font-weight: 900;
             text-transform: uppercase;
+            line-height: 1.1;
             letter-spacing: -2px;
             margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--ai-blue), #ffffff, var(--space-violet));
+            display: inline-block;
+        }
+
+        /* 1. WARP: Glitch & Pulse Effect */
+        .warp-text {
+            position: relative;
+            color: var(--cyan);
+            display: inline-block;
+            margin-right: 5px;
+            text-shadow: 0 0 10px var(--cyan-dim);
+        }
+        
+        /* 故障伪元素 1 */
+        .warp-text::before {
+            content: attr(data-text);
+            position: absolute;
+            left: -2px; top: 0;
+            color: var(--cyan);
+            background: var(--bg-deep);
+            overflow: hidden;
+            clip-path: inset(0 0 60% 0);
+            animation: glitch-anim-1 2s infinite linear alternate-reverse;
+            opacity: 0.8;
+        }
+        /* 故障伪元素 2 */
+        .warp-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 2px; top: 0;
+            color: #fff;
+            background: var(--bg-deep);
+            overflow: hidden;
+            clip-path: inset(40% 0 0 0);
+            animation: glitch-anim-2 3s infinite linear alternate-reverse;
+            opacity: 0.8;
+            mix-blend-mode: hard-light;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+            20% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+            40% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+            60% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+            100% { clip-path: inset(10% 0 60% 0); transform: translate(1px, 1px); }
+        }
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+            20% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 2px); }
+            40% { clip-path: inset(30% 0 20% 0); transform: translate(2px, 1px); }
+            60% { clip-path: inset(10% 0 80% 0); transform: translate(-1px, -2px); }
+            100% { clip-path: inset(50% 0 30% 0); transform: translate(1px, 1px); }
+        }
+
+        /* 2. BUBBLE: Holographic Sweep Effect */
+        .bubble-text {
+            background: linear-gradient(
+                110deg, 
+                var(--purple) 20%, 
+                #ffffff 45%, 
+                var(--cyan) 55%, 
+                var(--purple) 80%
+            );
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shine-sweep 4s linear infinite;
+            filter: drop-shadow(0 0 15px var(--purple-dim));
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-sub {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
+        @keyframes shine-sweep {
+            to { background-position: 200% center; }
         }
 
-        /* Grid System */
-        .domain-grid {
+        .tagline {
+            font-size: 1.2rem;
+            color: #889;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* === 域名卡片区 === */
+        .grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 2rem;
+            margin-bottom: 3rem;
         }
+        @media(min-width: 768px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-        @media (min-width: 768px) {
-            .domain-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* Cards */
         .card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
+            background: var(--glass);
+            border: 1px solid var(--border);
             padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s, border-color 0.3s;
             position: relative;
             overflow: hidden;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+        .card:hover { transform: translateY(-5px); }
 
-        .card-ai:hover {
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
-            border-color: rgba(0, 243, 255, 0.3);
-        }
-
-        .card-space:hover {
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.15);
-            border-color: rgba(188, 19, 254, 0.3);
-        }
-
-        .icon-box {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-        }
+        .card-ai:hover { border-color: var(--cyan); box-shadow: 0 0 30px var(--cyan-dim); }
+        .card-space:hover { border-color: var(--purple); box-shadow: 0 0 30px var(--purple-dim); }
 
         .card h2 {
-            font-family: var(--font-mono);
-            font-size: 1.8rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
+        .card-ai h2 { color: var(--cyan); }
+        .card-space h2 { color: var(--purple); }
 
-        .card-ai h2 { color: var(--ai-blue); }
-        .card-space h2 { color: var(--space-violet); }
-
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            flex-grow: 1;
+        .desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #ccc;
             margin-bottom: 2rem;
+            height: 100px; /* 保持对齐 */
         }
 
-        .price-tag {
-            font-family: var(--font-mono);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.2rem;
+        .price {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: bold;
             display: block;
         }
-
-        .payment-terms {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            display: block;
-        }
+        .terms { font-size: 0.9rem; color: #888; margin-bottom: 1.5rem; display: block; }
 
         .btn {
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
-            padding: 1rem;
-            text-align: center;
-            text-decoration: none;
-            font-family: var(--font-mono);
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: all 0.2s;
-            letter-spacing: 1px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-ai {
-            background: transparent;
-            border: 1px solid var(--ai-blue);
-            color: var(--ai-blue);
-        }
-        .btn-ai:hover { background: var(--ai-blue); color: #000; }
-
-        .btn-space {
-            background: transparent;
-            border: 1px solid var(--space-violet);
-            color: var(--space-violet);
-        }
-        .btn-space:hover { background: var(--space-violet); color: #000; }
-
-        /* Bundle Section */
-        .bundle-section {
-            background: linear-gradient(45deg, rgba(0, 243, 255, 0.05), rgba(188, 19, 254, 0.05));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-        }
-        
-        .bundle-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #fff;
-            color: #000;
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            padding: 0.25rem 1rem;
+            padding: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            cursor: pointer;
         }
 
+        .btn-ai { border: 1px solid var(--cyan); color: var(--cyan); background: transparent; }
+        .btn-ai:hover { background: var(--cyan); color: #000; box-shadow: 0 0 20px var(--cyan); }
+
+        .btn-space { border: 1px solid var(--purple); color: var(--purple); background: transparent; }
+        .btn-space:hover { background: var(--purple); color: #fff; box-shadow: 0 0 20px var(--purple); }
+
+        /* === 捆绑优惠 === */
+        .bundle {
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.05), rgba(188, 19, 254, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            text-align: center;
+            padding: 3rem;
+            border-radius: 16px;
+            position: relative;
+        }
+        .bundle-tag {
+            background: #fff; color: #000;
+            padding: 0.3rem 1rem;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            position: absolute;
+            top: -15px; left: 50%;
+            transform: translateX(-50%);
+            border-radius: 20px;
+        }
         .bundle-price {
-            font-family: var(--font-mono);
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 1rem 0 0.5rem;
-            background: linear-gradient(90deg, var(--ai-blue), var(--space-violet));
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(90deg, var(--cyan), #fff, var(--purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
-        .save-tag {
-            color: #00ff9d;
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        /* Scientific Context */
-        .science-section {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            border-top: 1px solid var(--glass-border);
-            padding-top: 3rem;
-        }
-
-        .science-section p {
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Contact */
-        .contact-section {
-            text-align: center;
-        }
-        
+        /* === 底部 === */
+        .contact { text-align: center; margin-top: 4rem; }
         .email-btn {
-            background: rgba(255,255,255,0.1);
-            border: none;
-            color: white;
-            font-family: var(--font-mono);
-            font-size: 1rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #fff;
             padding: 1rem 2rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: 0.3s;
             margin-top: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
         }
+        .email-btn:hover { background: rgba(255,255,255,0.15); border-color: #fff; }
 
-        .email-btn:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #555;
-            padding-bottom: 2rem;
-        }
-
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* SVGs */
-        svg {
-            stroke-width: 1.5;
-            stroke: currentColor;
-            fill: none;
-        }
+        footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: #555; }
     </style>
 </head>
 <body>
 
-    <div class="stars"></div>
+    <div class="cosmos-bg"><div class="stars"></div></div>
 
     <div class="container">
         
-        <!-- Hero -->
         <header>
-            <h1>WarpBubble</h1>
-            <div class="hero-sub">Where AI Meets Spacetime. Own the domains powering the next frontier of intelligent space exploration.</div>
+            <div class="logo-wrapper">
+                <!-- Warp: Glitch Effect with data-text attribute for the pseudo-elements -->
+                <span class="warp-text" data-text="WARP">WARP</span><span class="bubble-text">BUBBLE</span>
+            </div>
+            <div class="tagline">The Convergence of AI & Spacetime</div>
         </header>
 
-        <!-- Dual Domain Showcase -->
-        <div class="domain-grid">
-            
-            <!-- Card 1: AI -->
+        <div class="grid">
+            <!-- AI Domain -->
             <div class="card card-ai">
-                <div class="icon-box" style="color: var(--ai-blue);">
-                    <svg width="32" height="32" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V11a2 2 0 1 1-2 0V5.73C10.4 5.39 10 4.74 10 4a2 2 0 0 1 2-2z"></path>
-                        <path d="M5.26 18.27l-2.07 1.2a2 2 0 0 1-2.73-.73 2 2 0 0 1 .73-2.73l2.07-1.2a2 2 0 0 1 2.73.73 2 2 0 0 1-.73 2.73z"></path>
-                        <path d="M19.74 5.73l2.07-1.2a2 2 0 0 1 2.73.73 2 2 0 0 1-.73 2.73l-2.07 1.2a2 2 0 0 1-2.73-.73 2 2 0 0 1 .73-2.73z"></path>
-                        <rect x="2" y="10" width="20" height="4" rx="2"></rect>
-                        <line x1="12" y1="14" x2="12" y2="22"></line>
-                        <circle cx="12" cy="22" r="2"></circle>
-                    </svg>
-                </div>
                 <h2>warpbubble.ai</h2>
-                <p>The intelligence layer for warp field simulation, quantum gravity modeling, and autonomous deep-space systems. Ideal for AI labs pioneering physics-informed neural networks.</p>
+                <p class="desc">
+                    The intelligence layer for warp field simulation, quantum gravity modeling, and autonomous deep-space systems.
+                </p>
                 <div>
-                    <span class="price-tag">$42,000 USD</span>
-                    <span class="payment-terms">(12 monthly payments available)</span>
+                    <span class="price">$42,000</span>
+                    <span class="terms">USD • 12 Monthly Payments</span>
                 </div>
-                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="btn btn-ai">Buy on Afternic</a>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="btn btn-ai">
+                    Initialize Acquisition
+                </a>
             </div>
 
-            <!-- Card 2: Space -->
+            <!-- Space Domain -->
             <div class="card card-space">
-                <div class="icon-box" style="color: var(--space-violet);">
-                    <svg width="32" height="32" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <path d="M2 12h20"></path>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                </div>
                 <h2>warpbubble.space</h2>
-                <p>The spatial layer for orbital infrastructure, interplanetary data networks, and decentralized space governance. Perfect for space startups building the cosmic internet.</p>
+                <p class="desc">
+                    The spatial layer for orbital infrastructure, interplanetary data networks, and decentralized space governance.
+                </p>
                 <div>
-                    <span class="price-tag">$12,000 USD</span>
-                    <span class="payment-terms">(12 monthly payments available)</span>
+                    <span class="price">$12,000</span>
+                    <span class="terms">USD • 12 Monthly Payments</span>
                 </div>
-                <a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="btn btn-space">Buy on Afternic</a>
+                <a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="btn btn-space">
+                    Secure Asset
+                </a>
             </div>
-
         </div>
 
-        <!-- Bundle Offer -->
-        <div class="bundle-section">
-            <div class="bundle-badge">🚀 Exclusive Bundle</div>
-            <h3>Own the Complete Ecosystem</h3>
+        <!-- Bundle -->
+        <div class="bundle">
+            <div class="bundle-tag">Best Value • Save $3,000</div>
+            <h3>Complete Ecosystem Ownership</h3>
             <div class="bundle-price">$51,000 USD</div>
-            <p class="payment-terms" style="margin-bottom: 0.5rem">Both domains included • 12 monthly payments</p>
-            <p class="save-tag">Save $3,000 when acquired together</p>
+            <p style="color: #ccc;">Includes both .ai and .space domains</p>
         </div>
 
-        <!-- Scientific Context -->
-        <div class="science-section">
-            <p>"Inspired by the Alcubierre metric and recent breakthroughs in warp field interferometry, 'WarpBubble' represents the convergence of theoretical physics, artificial intelligence, and space infrastructure."</p>
-        </div>
-
-        <!-- Contact -->
-        <div class="contact-section">
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Questions? Reach out:</p>
-            <button id="emailBtn" class="email-btn" onclick="copyToClipboard()">
-                <span>joshua369x@gmail.com</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                </svg>
+        <div class="contact">
+            <p style="color: #888;">Direct Inquiry:</p>
+            <button class="email-btn" onclick="copyEmail(this)">
+                joshua369x@gmail.com
             </button>
-            <p style="font-size: 0.75rem; color: #555; margin-top: 1rem;">Serious inquiries only. Buyer responsible for due diligence.</p>
+            <p style="margin-top: 1rem; font-size: 0.8rem; color: #555;">Serious offers only. Due diligence required.</p>
         </div>
-
-        <footer>
-            © 2026 WarpBubble Domains. Not affiliated with any government space agency or sci-fi franchise.
-        </footer>
 
     </div>
 
+    <footer>
+        &copy; 2026 WarpBubble Domains. Scientific concept art.
+    </footer>
+
     <script>
-        function copyToClipboard() {
-            const email = "joshua369x@gmail.com";
-            navigator.clipboard.writeText(email).then(() => {
-                const btn = document.getElementById('emailBtn');
-                const originalHTML = btn.innerHTML;
-                
-                // Change button content to show success
-                btn.innerHTML = '<span style="color: #00ff9d">Copied to clipboard!</span>';
-                btn.style.borderColor = "#00ff9d";
-                
-                // Revert back after 2 seconds
+        function copyEmail(btn) {
+            navigator.clipboard.writeText('joshua369x@gmail.com').then(() => {
+                const original = btn.innerText;
+                btn.innerText = 'Email Copied!';
+                btn.style.borderColor = '#00ff9d';
+                btn.style.color = '#00ff9d';
                 setTimeout(() => {
-                    btn.innerHTML = originalHTML;
-                    btn.style.borderColor = "transparent";
+                    btn.innerText = original;
+                    btn.style.borderColor = 'rgba(255,255,255,0.1)';
+                    btn.style.color = '#fff';
                 }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
             });
         }
     </script>
