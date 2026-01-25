@@ -3,212 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WarpBubble | The Singularity of Speed</title>
+    <title>WarpBubble | FTL Intelligence Assets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fonts: Orbitron (Headers), Rajdhani (Tech specs) -->
+    <!-- Fonts: Orbitron (Display), Rajdhani (UI/Data) -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800;900&family=Rajdhani:wght@300;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-void: #010103;
-            --bg-panel: rgba(15, 20, 35, 0.6);
+            --void: #000000;
+            --hud-bg: rgba(10, 20, 40, 0.65);
+            --hud-border: rgba(100, 200, 255, 0.2);
             
-            /* WARP Colors: High energy, electric, fast */
-            --warp-core: #00f3ff; 
-            --warp-trail: #0066ff;
+            /* Warp Energy Colors */
+            --cyan-core: #00f3ff; 
+            --blue-shift: #0066ff;
             
-            /* BUBBLE Colors: Iridescent, soft, exotic matter */
-            --bubble-sheen: #ffffff;
-            --bubble-surf-1: #ff00cc;
-            --bubble-surf-2: #00f3ff;
-            
-            --border: rgba(255, 255, 255, 0.1);
+            /* Bubble Exotic Colors */
+            --magenta-glow: #ff00cc;
+            --iridescence: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-void);
+            background-color: var(--void);
             color: #fff;
             font-family: 'Rajdhani', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden; /* Hide scrollbars for the tunnel effect */
             display: flex;
             flex-direction: column;
+            position: relative;
         }
 
-        /* --- HYPERSPACE TUNNEL BACKGROUND --- */
-        .hyperspace-bg {
+        /* --- THE HYPERSPACE CANVAS --- */
+        #hyperspace-canvas {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: radial-gradient(circle at center, #0b0f19 0%, #000000 100%);
         }
 
-        .streak {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 200px; height: 1px;
-            background: rgba(255, 255, 255, 0.5);
-            transform-origin: left;
-            animation: streak-fly 2s linear infinite;
-        }
-        
-        @keyframes streak-fly {
-            0% { transform: rotate(var(--deg)) translateX(50px) scaleX(0.1); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: rotate(var(--deg)) translateX(800px) scaleX(3); opacity: 0; }
+        /* Cockpit Vignette (Darkens corners to focus view) */
+        .cockpit-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at center, transparent 40%, #000 120%);
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            flex-grow: 1;
+        /* --- MAIN UI CONTAINER (The HUD) --- */
+        .hud-container {
             position: relative;
             z-index: 10;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            height: 100vh;
+            overflow-y: auto; /* Allow scrolling content inside the cockpit view */
+            padding: 4rem 1rem;
+            
+            /* Custom Scrollbar for the HUD */
+            scrollbar-width: thin;
+            scrollbar-color: var(--cyan-core) transparent;
         }
 
-        /* --- LOGO SYSTEM: WARP + SHIP + BUBBLE --- */
+        .hud-container::-webkit-scrollbar { width: 6px; }
+        .hud-container::-webkit-scrollbar-thumb { background: var(--cyan-core); border-radius: 3px; }
+
+        /* --- LOGO ENGINE --- */
         header {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin: 4rem 0 6rem 0;
+            margin-bottom: 5rem;
+            perspective: 1000px;
         }
 
         .logo-lockup {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            perspective: 1000px;
+            gap: 15px;
+            transform-style: preserve-3d;
         }
 
-        /* 1. WARP VISUALS: Speed, Distortion, Stretch */
+        /* 1. WARP: Motion Blur & Redshift */
         .text-warp {
             font-family: 'Orbitron', sans-serif;
             font-weight: 900;
-            font-size: clamp(3rem, 9vw, 6rem);
+            font-size: clamp(3rem, 8vw, 6rem);
             line-height: 1;
-            color: transparent;
             text-transform: uppercase;
-            
-            /* The Speed Texture */
-            background-image: linear-gradient(90deg, 
-                var(--warp-trail) 0%, 
-                var(--warp-core) 50%, 
-                #fff 100%);
+            color: transparent;
+            /* Speed Lines Gradient */
+            background: linear-gradient(90deg, transparent, var(--cyan-core), #fff, var(--cyan-core), transparent);
             background-size: 200% 100%;
             -webkit-background-clip: text;
             
-            /* The Physical Distortion (Relativistic Stretching) */
-            transform: skewX(-25deg) scaleX(1.1);
-            letter-spacing: -2px;
-            
-            /* Motion Blur Shadow */
-            text-shadow: 
-                -4px 0 0 rgba(0, 243, 255, 0.4),
-                -8px 0 10px rgba(0, 100, 255, 0.3);
-                
-            animation: warp-pulse 0.1s infinite alternate;
+            /* Relativistic Distortion */
+            transform: skewX(-30deg) scaleX(1.1);
+            filter: blur(0.5px);
+            text-shadow: -10px 0 20px var(--blue-shift); /* Blue shift tail */
+            animation: warp-speed 0.2s linear infinite;
         }
 
-        @keyframes warp-pulse {
-            from { background-position: 100% 0; }
-            to { background-position: 0% 0; }
+        @keyframes warp-speed {
+            0% { background-position: 100% 0; opacity: 0.9; }
+            100% { background-position: -100% 0; opacity: 1; }
         }
 
-        /* 2. CENTRAL ANIMATION: Ship breaking the barrier */
-        .visual-connector {
-            position: relative;
-            width: 80px;
-            height: 80px;
-            margin: 0 10px;
+        /* 2. CENTRAL SHIP */
+        .ship-viewport {
+            width: 80px; height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
-        /* The Warp Bubble (Field) */
-        .bubble-field {
+        .warp-field-emitter {
             position: absolute;
             width: 100%; height: 100%;
             border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), transparent 60%);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             box-shadow: 
-                0 0 15px var(--warp-core),
-                inset 0 0 10px var(--bubble-surf-1);
-            animation: field-fluctuate 3s ease-in-out infinite;
+                0 0 20px var(--cyan-core),
+                inset 0 0 15px var(--magenta-glow);
+            animation: field-stable 2s ease-in-out infinite alternate;
         }
 
-        /* The Ship */
-        .ship {
-            position: relative;
-            width: 40px; height: 10px;
-            background: white;
-            clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%, 20% 50%);
-            z-index: 2;
-            box-shadow: 0 0 20px white;
-        }
-        .ship::after {
-            /* Engine Trail */
-            content: '';
-            position: absolute;
-            left: -30px; top: 2px;
-            width: 30px; height: 6px;
-            background: linear-gradient(90deg, transparent, var(--warp-core));
-            filter: blur(2px);
+        .starship {
+            width: 40px; height: 50px;
+            background: #fff;
+            clip-path: polygon(50% 0%, 0% 100%, 50% 80%, 100% 100%);
+            transform: rotate(90deg); /* Facing forward/right */
+            filter: drop-shadow(0 0 10px #fff);
+            z-index: 5;
         }
 
-        @keyframes field-fluctuate {
-            0%, 100% { transform: scale(1); border-color: rgba(255,255,255,0.3); }
-            50% { transform: scale(1.1); border-color: rgba(0,243,255,0.6); }
+        @keyframes field-stable {
+            from { transform: scale(1); opacity: 0.8; }
+            to { transform: scale(1.1); opacity: 1; border-color: var(--cyan-core); }
         }
 
-        /* 3. BUBBLE VISUALS: Round, Glossy, Floating */
+        /* 3. BUBBLE: Soap Iridescence */
         .text-bubble {
             font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            font-size: clamp(3rem, 9vw, 6rem);
+            font-weight: 900;
+            font-size: clamp(3rem, 8vw, 6rem);
             line-height: 1;
             text-transform: uppercase;
-            color: transparent;
             
-            /* Soap Bubble Iridescence Gradient */
-            background: linear-gradient(180deg, 
-                #fff 10%, 
-                var(--bubble-surf-2) 40%, 
-                var(--bubble-surf-1) 60%, 
-                var(--warp-core) 90%);
+            /* Multi-color surface */
+            background: linear-gradient(135deg, #fff 20%, var(--cyan-core) 50%, var(--magenta-glow) 80%);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             
-            /* Glassy/Glow Effects */
-            filter: drop-shadow(0 0 15px rgba(188, 19, 254, 0.5));
-            
-            /* Floating Physics */
-            animation: float-anim 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+            animation: float-zero-g 4s ease-in-out infinite;
         }
 
-        @keyframes float-anim {
+        @keyframes float-zero-g {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
 
-        .tagline {
-            margin-top: 1.5rem;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            color: #778;
-            border-top: 1px solid #333;
-            padding-top: 1rem;
-        }
-
-        /* --- CARDS --- */
+        /* --- DATA PANELS --- */
         .grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -217,272 +181,304 @@
         }
         @media (min-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
 
-        .card {
-            background: var(--bg-panel);
-            border: 1px solid var(--border);
+        .panel {
+            background: var(--hud-bg);
+            border: 1px solid var(--hud-border);
+            backdrop-filter: blur(5px); /* Glass cockpit effect */
+            padding: 2rem;
             border-radius: 8px;
-            padding: 2.5rem;
-            backdrop-filter: blur(12px);
-            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            background: rgba(25, 30, 50, 0.7);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .card-header {
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
+        /* Scanline effect for HUD */
+        .panel::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 243, 255, 0.03) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
         }
 
-        .domain-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .panel:hover {
+            border-color: var(--cyan-core);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+            transform: scale(1.02);
         }
 
-        .domain-subtitle {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #889;
-        }
-
-        /* Specific Card Styling */
-        .ai-card { border-top: 3px solid var(--warp-core); }
-        .ai-card .domain-title { color: var(--warp-core); }
-        
-        .space-card { border-top: 3px solid var(--bubble-surf-1); }
-        .space-card .domain-title { color: var(--bubble-surf-1); }
-
-        /* Capability List */
-        .capabilities {
-            margin-bottom: 2rem;
-        }
-        .cap-title {
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        .cap-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-        .cap-item {
-            font-size: 0.9rem;
-            color: #aaa;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .cap-item::before {
-            content: '';
-            width: 4px; height: 4px;
-            background: currentColor;
-            border-radius: 50%;
-        }
-
-        /* Price & Button */
-        .price-block {
-            background: rgba(0,0,0,0.3);
-            padding: 1.5rem;
-            border-radius: 4px;
-            text-align: center;
-        }
-        .price {
+        .panel-header h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .ai-accent { color: var(--cyan-core); }
+        .space-accent { color: var(--magenta-glow); }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+        .spec-item {
+            font-size: 0.85rem;
+            color: #b0c4de;
+            display: flex;
+            align-items: center;
+        }
+        .spec-item::before {
+            content: "■";
+            font-size: 0.6rem;
+            margin-right: 8px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .price-display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: white;
+            color: #fff;
+            margin-top: 1rem;
             display: block;
         }
-        .btn {
+
+        .acquire-btn {
             display: block;
             margin-top: 1rem;
             padding: 1rem;
+            text-align: center;
             text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
             font-weight: 700;
-            transition: 0.3s;
-            border: 1px solid transparent;
+            letter-spacing: 1px;
+            transition: 0.2s;
+            border: 1px solid;
+            position: relative;
+            z-index: 2;
         }
         
-        .btn-ai {
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--warp-core);
-            border-color: var(--warp-core);
-        }
-        .btn-ai:hover { background: var(--warp-core); color: #000; box-shadow: 0 0 30px var(--warp-core); }
+        .btn-cyan { border-color: var(--cyan-core); color: var(--cyan-core); background: rgba(0,243,255,0.1); }
+        .btn-cyan:hover { background: var(--cyan-core); color: #000; }
+        
+        .btn-magenta { border-color: var(--magenta-glow); color: var(--magenta-glow); background: rgba(255,0,204,0.1); }
+        .btn-magenta:hover { background: var(--magenta-glow); color: #000; }
 
-        .btn-space {
-            background: rgba(255, 0, 204, 0.1);
-            color: var(--bubble-surf-1);
-            border-color: var(--bubble-surf-1);
-        }
-        .btn-space:hover { background: var(--bubble-surf-1); color: #000; box-shadow: 0 0 30px var(--bubble-surf-1); }
-
-        /* --- BUNDLE --- */
-        .bundle-sect {
+        /* --- BUNDLE & FOOTER --- */
+        .bundle-box {
             text-align: center;
-            padding: 3rem;
-            background: linear-gradient(135deg, rgba(0,243,255,0.05), rgba(255,0,204,0.05));
-            border: 1px solid rgba(255,255,255,0.15);
+            background: linear-gradient(90deg, rgba(0,243,255,0.1), rgba(255,0,204,0.1));
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 2rem;
             border-radius: 8px;
-            margin-bottom: 4rem;
-        }
-        .bundle-price {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(to right, var(--warp-core), #fff, var(--bubble-surf-1));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 3rem;
         }
 
-        /* Footer */
-        .contact { text-align: center; }
-        .email-copy {
+        .footer-controls {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+        .email-btn {
             background: transparent;
             border: 1px solid #555;
-            color: #aaa;
-            padding: 10px 25px;
+            color: #888;
+            padding: 0.8rem 2rem;
             font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
             cursor: pointer;
             transition: 0.3s;
         }
-        .email-copy:hover { border-color: white; color: white; }
+        .email-btn:hover { border-color: #fff; color: #fff; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
 
         @media (max-width: 768px) {
             .logo-lockup { flex-direction: column; gap: 20px; }
-            .visual-connector { transform: rotate(90deg); margin: 20px 0; }
+            .ship-viewport { transform: rotate(90deg); margin: 20px 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dynamic Background -->
-    <div class="hyperspace-bg" id="starfield"></div>
+    <!-- Infinite Star Tunnel Canvas -->
+    <canvas id="hyperspace-canvas"></canvas>
+    
+    <!-- Vignette Overlay -->
+    <div class="cockpit-overlay"></div>
 
-    <div class="container">
+    <!-- Scrollable HUD Container -->
+    <div class="hud-container">
         
         <header>
             <div class="logo-lockup">
-                <!-- Warp: Skewed, Speed Lines, Motion Blur -->
                 <div class="text-warp">WARP</div>
-                
-                <!-- Center: Ship entering bubble -->
-                <div class="visual-connector">
-                    <div class="bubble-field"></div>
-                    <div class="ship"></div>
+                <div class="ship-viewport">
+                    <div class="warp-field-emitter"></div>
+                    <div class="starship"></div>
                 </div>
-
-                <!-- Bubble: Round, Glossy, Floating -->
                 <div class="text-bubble">BUBBLE</div>
             </div>
-            <div class="tagline">Spacetime Topology & Artificial Intelligence Assets</div>
+            <p style="margin-top: 1.5rem; letter-spacing: 4px; color: #8cf; text-transform: uppercase; font-size: 0.9rem;">
+                Spacetime Topology & AI Assets
+            </p>
         </header>
 
         <div class="grid">
-            <!-- AI CARD -->
-            <div class="card ai-card">
-                <div class="card-header">
-                    <div class="domain-title">warpbubble.ai</div>
-                    <div class="domain-subtitle">The Intelligence Layer</div>
+            <!-- .AI Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="ai-accent">warpbubble.ai</h2>
+                    <div style="font-size:0.8rem; color:#aaa;">SYSTEM: INTELLIGENCE LAYER</div>
                 </div>
-                
-                <div class="capabilities">
-                    <div class="cap-title">Advanced Application Fields:</div>
-                    <div class="cap-grid">
-                        <div class="cap-item">Alcubierre Metric Sims</div>
-                        <div class="cap-item">Metamaterials AI</div>
-                        <div class="cap-item">Quantum Gravity Models</div>
-                        <div class="cap-item">Relativistic Navigation</div>
-                        <div class="cap-item">Zero-Point Energy R&D</div>
-                        <div class="cap-item">Fusion Reactor Control</div>
-                        <div class="cap-item">FTL Communications</div>
-                        <div class="cap-item">Exotic Matter Synthesis</div>
-                    </div>
+                <div class="specs-grid">
+                    <div class="spec-item">Alcubierre Metric AI</div>
+                    <div class="spec-item">Metamaterial Design</div>
+                    <div class="spec-item">Quantum Vacuum Sims</div>
+                    <div class="spec-item">Zero-Point Energy</div>
+                    <div class="spec-item">Casimir Effect R&D</div>
+                    <div class="spec-item">Relativistic Nav</div>
+                    <div class="spec-item">Exotic Matter Synth</div>
+                    <div class="spec-item">Fusion Control</div>
                 </div>
-
-                <div class="price-block">
-                    <span class="price">$42,000 USD</span>
-                    <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="btn btn-ai">Acquire Protocol</a>
-                </div>
+                <div class="price-display">$42,000 USD</div>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="acquire-btn btn-cyan">Initialize .AI Transfer</a>
             </div>
 
-            <!-- SPACE CARD -->
-            <div class="card space-card">
-                <div class="card-header">
-                    <div class="domain-title">warpbubble.space</div>
-                    <div class="domain-subtitle">The Physical Territory</div>
+            <!-- .SPACE Panel -->
+            <div class="panel">
+                <div class="panel-header">
+                    <h2 class="space-accent">warpbubble.space</h2>
+                    <div style="font-size:0.8rem; color:#aaa;">SYSTEM: PHYSICAL TERRITORY</div>
                 </div>
-
-                <div class="capabilities">
-                    <div class="cap-title">Infrastructure Deployment:</div>
-                    <div class="cap-grid">
-                        <div class="cap-item">Orbital Shipyards</div>
-                        <div class="cap-item">Lagrange Point Nodes</div>
-                        <div class="cap-item">Dyson Swarm Logistics</div>
-                        <div class="cap-item">Interstellar Arks</div>
-                        <div class="cap-item">Deep Space Mining</div>
-                        <div class="cap-item">Space Colony Gov (DAO)</div>
-                        <div class="cap-item">Quantum Internet Mesh</div>
-                        <div class="cap-item">Antimatter Storage</div>
-                    </div>
+                <div class="specs-grid">
+                    <div class="spec-item">Orbital Shipyards</div>
+                    <div class="spec-item">Lagrange Nodes</div>
+                    <div class="spec-item">Interstellar Arks</div>
+                    <div class="spec-item">Dyson Swarm Ops</div>
+                    <div class="spec-item">Deep Space Mining</div>
+                    <div class="spec-item">Colony Governance</div>
+                    <div class="spec-item">Antimatter Storage</div>
+                    <div class="spec-item">Quantum Mesh Net</div>
                 </div>
-
-                <div class="price-block">
-                    <span class="price">$12,000 USD</span>
-                    <a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="btn btn-space">Claim Territory</a>
-                </div>
+                <div class="price-display">$12,000 USD</div>
+                <a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="acquire-btn btn-magenta">Initialize .SPACE Transfer</a>
             </div>
         </div>
 
-        <div class="bundle-sect">
-            <h3 style="color:#aaa; text-transform:uppercase; margin-bottom:1rem;">Singularity Acquisition Bundle</h3>
-            <div class="bundle-price">$51,000 USD</div>
-            <p style="color:#778; margin-top:1rem;">Complete ownership of the "Warp Bubble" brand across software (.ai) and hardware (.space) verticals.</p>
+        <div class="bundle-box">
+            <h3 style="color:#fff; font-family:'Orbitron', sans-serif;">SINGULARITY BUNDLE</h3>
+            <div style="font-size:2.5rem; font-weight:700; color:#fff; margin:0.5rem 0;">$51,000 USD</div>
+            <p style="color:#b0c4de;">Secure the complete Warp Bubble ecosystem software & hardware definitions.</p>
         </div>
 
-        <div class="contact">
-            <button class="email-copy" onclick="copyEmail(this)">
-                Contact Broker: joshua369x@gmail.com
+        <div class="footer-controls">
+            <button class="email-btn" onclick="copyEmail(this)">
+                COMMS: joshua369x@gmail.com
             </button>
-            <p style="margin-top:2rem; font-size:0.75rem; color:#445;">© 2026 WarpBubble Assets. Theoretical Physics & Deep Tech.</p>
+            <p style="margin-top:2rem; font-size:0.7rem; color:#556;">
+                © 2026 WarpBubble. Theoretical Physics & Deep Tech Assets.
+            </p>
         </div>
 
     </div>
 
     <script>
-        // Generate Star Streaks
-        const bg = document.getElementById('starfield');
-        for(let i=0; i<30; i++) {
-            let streak = document.createElement('div');
-            streak.className = 'streak';
-            streak.style.left = Math.random() * 100 + '%';
-            streak.style.top = Math.random() * 100 + '%';
-            streak.style.setProperty('--deg', Math.random() * 360 + 'deg');
-            streak.style.animationDelay = Math.random() * 2 + 's';
-            bg.appendChild(streak);
+        // --- HYPERSPACE ENGINE (Canvas) ---
+        const canvas = document.getElementById('hyperspace-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let stars = [];
+        
+        // Configuration
+        const STAR_COUNT = 800;
+        const SPEED = 20; // Warp speed factor
+        
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Star {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.x = (Math.random() - 0.5) * width; // Random x centered
+                this.y = (Math.random() - 0.5) * height; // Random y centered
+                this.z = Math.random() * width; // Depth
+            }
+
+            update() {
+                // Move star closer (decrease z)
+                this.z -= SPEED;
+                
+                // If passed the screen, reset to back
+                if (this.z <= 0) {
+                    this.init();
+                    this.z = width;
+                }
+            }
+
+            draw() {
+                // Project 3D position to 2D
+                let sx = (this.x / this.z) * width/2 + width/2;
+                let sy = (this.y / this.z) * height/2 + height/2;
+                
+                // Calculate size based on proximity
+                let r = (1 - this.z / width) * 4;
+                
+                // Draw star trail (streak effect)
+                let prevZ = this.z + SPEED * 2;
+                let px = (this.x / prevZ) * width/2 + width/2;
+                let py = (this.y / prevZ) * height/2 + height/2;
+
+                ctx.beginPath();
+                ctx.moveTo(px, py);
+                ctx.lineTo(sx, sy);
+                
+                // Color gets brighter as it gets closer
+                let opacity = (1 - this.z / width);
+                ctx.strokeStyle = `rgba(200, 240, 255, ${opacity})`;
+                ctx.lineWidth = r;
+                ctx.stroke();
+            }
         }
 
+        // Initialize Starfield
+        for(let i=0; i<STAR_COUNT; i++) {
+            stars.push(new Star());
+        }
+
+        function animate() {
+            // Clear with slight fade for trail effect (optional, here we clear fully)
+            ctx.fillStyle = "rgba(0, 0, 0, 1)";
+            ctx.fillRect(0, 0, width, height);
+            
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+            
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // --- CLIPBOARD FUNCTION ---
         function copyEmail(btn) {
             navigator.clipboard.writeText("joshua369x@gmail.com").then(() => {
                 let original = btn.innerText;
                 btn.innerText = "COPIED TO CLIPBOARD";
-                btn.style.borderColor = "#fff";
-                btn.style.color = "#fff";
+                btn.style.borderColor = "#00f3ff";
+                btn.style.color = "#00f3ff";
                 setTimeout(() => {
                     btn.innerText = original;
                     btn.style.borderColor = "#555";
-                    btn.style.color = "#aaa";
+                    btn.style.color = "#888";
                 }, 2000);
             });
         }
