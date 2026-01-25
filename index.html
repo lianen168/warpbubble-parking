@@ -342,4 +342,92 @@
                         <path d="M19.74 5.73l2.07-1.2a2 2 0 0 1 2.73.73 2 2 0 0 1-.73 2.73l-2.07 1.2a2 2 0 0 1-2.73-.73 2 2 0 0 1 .73-2.73z"></path>
                         <rect x="2" y="10" width="20" height="4" rx="2"></rect>
                         <line x1="12" y1="14" x2="12" y2="22"></line>
-         
+                        <circle cx="12" cy="22" r="2"></circle>
+                    </svg>
+                </div>
+                <h2>warpbubble.ai</h2>
+                <p>The intelligence layer for warp field simulation, quantum gravity modeling, and autonomous deep-space systems. Ideal for AI labs pioneering physics-informed neural networks.</p>
+                <div>
+                    <span class="price-tag">$42,000 USD</span>
+                    <span class="payment-terms">(12 monthly payments available)</span>
+                </div>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="btn btn-ai">Buy on Afternic</a>
+            </div>
+
+            <!-- Card 2: Space -->
+            <div class="card card-space">
+                <div class="icon-box" style="color: var(--space-violet);">
+                    <svg width="32" height="32" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h2>warpbubble.space</h2>
+                <p>The spatial layer for orbital infrastructure, interplanetary data networks, and decentralized space governance. Perfect for space startups building the cosmic internet.</p>
+                <div>
+                    <span class="price-tag">$12,000 USD</span>
+                    <span class="payment-terms">(12 monthly payments available)</span>
+                </div>
+                <a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="btn btn-space">Buy on Afternic</a>
+            </div>
+
+        </div>
+
+        <!-- Bundle Offer -->
+        <div class="bundle-section">
+            <div class="bundle-badge">🚀 Exclusive Bundle</div>
+            <h3>Own the Complete Ecosystem</h3>
+            <div class="bundle-price">$51,000 USD</div>
+            <p class="payment-terms" style="margin-bottom: 0.5rem">Both domains included • 12 monthly payments</p>
+            <p class="save-tag">Save $3,000 when acquired together</p>
+        </div>
+
+        <!-- Scientific Context -->
+        <div class="science-section">
+            <p>"Inspired by the Alcubierre metric and recent breakthroughs in warp field interferometry, 'WarpBubble' represents the convergence of theoretical physics, artificial intelligence, and space infrastructure."</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="contact-section">
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Questions? Reach out:</p>
+            <button id="emailBtn" class="email-btn" onclick="copyToClipboard()">
+                <span>joshua369x@gmail.com</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+            </button>
+            <p style="font-size: 0.75rem; color: #555; margin-top: 1rem;">Serious inquiries only. Buyer responsible for due diligence.</p>
+        </div>
+
+        <footer>
+            © 2026 WarpBubble Domains. Not affiliated with any government space agency or sci-fi franchise.
+        </footer>
+
+    </div>
+
+    <script>
+        function copyToClipboard() {
+            const email = "joshua369x@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = document.getElementById('emailBtn');
+                const originalHTML = btn.innerHTML;
+                
+                // Change button content to show success
+                btn.innerHTML = '<span style="color: #00ff9d">Copied to clipboard!</span>';
+                btn.style.borderColor = "#00ff9d";
+                
+                // Revert back after 2 seconds
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.borderColor = "transparent";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+
+</body>
+</html>
