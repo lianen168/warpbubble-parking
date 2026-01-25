@@ -3,159 +3,343 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>warpbubble.ai</title>
-    <meta name="description" content="warpbubble.ai — Reserved domain. For strategic inquiries only.">
+    <title>WarpBubble | The Future of Spacetime</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #ffffff; 
-            background: linear-gradient(135deg, #050508 0%, #0a0a12 100%);
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 20px; 
-            text-align: center; 
-            position: relative; 
-            overflow-x: hidden; 
+        :root {
+            --bg-deep: #03050a;
+            --ai-blue: #00f3ff;
+            --space-violet: #bc13fe;
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --font-mono: 'Space Mono', monospace;
+            --font-sans: 'Inter', sans-serif;
         }
-        .light-effect { 
-            position: absolute; 
-            top: 50%; 
-            left: 50%; 
-            width: min(120vw, 1000px); 
-            height: min(120vh, 1000px); 
-            background: radial-gradient(circle at center, rgba(200, 180, 255, 0.06) 0%, transparent 65%);
-            transform: translate(-50%, -50%); 
-            pointer-events: none; 
-            z-index: -1; 
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .container { 
-            max-width: 760px; 
-            width: 100%; 
-            padding: 70px 40px; 
-            background: rgba(10, 12, 20, 0.8);
-            backdrop-filter: blur(16px); 
-            border-radius: 28px; 
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(200, 180, 255, 0.15); 
-            border: 1px solid rgba(200, 180, 255, 0.1); 
-            z-index: 1; 
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
         }
-        h1 { 
-            font-size: clamp(2.4rem, 7.5vw, 4.8rem); /* 专为长域名优化 */
-            font-weight: 200; 
-            letter-spacing: 0.08em; /* 紧凑但不拥挤 */
-            margin-bottom: 35px; 
-            opacity: 0.95; 
-            text-transform: lowercase; 
-            color: #e0d0ff;
-            line-height: 1.2;
+
+        /* Animated Starfield Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         }
-        .domain { display: inline-block; transition: opacity 0.3s ease; }
-        .domain:hover { opacity: 0.8; }
-        p { 
-            font-size: clamp(1.2rem, 4.5vw, 1.6rem); 
-            opacity: 0.85; 
-            max-width: 640px; 
-            margin: 0 auto 45px; 
-            line-height: 1.8; 
-            color: #d0c0e8;
+        
+        .stars::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            animation: star-move 200s linear infinite;
         }
-        .note-section { 
-            background: rgba(20, 25, 40, 0.3); 
-            border-radius: 18px; 
-            padding: 28px; 
-            margin: 45px 0; 
-            border: 1px solid rgba(200, 180, 255, 0.15); 
+
+        @keyframes star-move {
+            from { transform: translateY(0); }
+            to { transform: translateY(-500px); }
         }
-        .note-text { 
-            font-size: 0.98rem; 
-            opacity: 0.75; 
-            line-height: 1.8; 
-            color: #b0a0d8;
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
         }
-        .contact-section { margin-top: 45px; }
-        .email-link { 
-            font-size: 1.5rem; 
-            color: #b090ff; 
-            text-decoration: none; 
-            font-family: 'Courier New', monospace; 
-            padding: 12px 26px; 
-            background: rgba(200, 180, 255, 0.12); 
-            border-radius: 12px; 
-            display: inline-block; 
-            border: 1px solid rgba(200, 180, 255, 0.3); 
-            transition: all 0.3s ease; 
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding-top: 2rem;
+            animation: fade-in 1.5s ease-out;
         }
-        .email-link:hover { 
-            background: rgba(200, 180, 255, 0.22); 
-            transform: translateY(-3px); 
-            box-shadow: 0 8px 20px rgba(200, 180, 255, 0.12); 
+
+        h1 {
+            font-family: var(--font-mono);
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--ai-blue), #ffffff, var(--space-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .contact-note { 
-            font-size: 0.95rem; 
-            opacity: 0.65; 
-            margin-top: 18px; 
-            font-style: italic; 
-            color: #a090c8;
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .footer { 
-            position: absolute; 
-            bottom: 30px; 
-            font-size: 0.85rem; 
-            opacity: 0.4; 
-            width: 100%; 
-            text-align: center; 
-            color: #8070a8;
+
+        /* Grid System */
+        .domain-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
         }
-        @media (max-width: 768px) { 
-            .container { padding: 50px 30px; margin: 20px; } 
-            .email-link { font-size: 1.3rem; } 
-            h1 { 
-                font-size: clamp(2.1rem, 9vw, 3.8rem); /* 移动端更紧凑 */
-                letter-spacing: 0.04em;
+
+        @media (min-width: 768px) {
+            .domain-grid {
+                grid-template-columns: 1fr 1fr;
             }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-ai:hover {
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.15);
+            border-color: rgba(0, 243, 255, 0.3);
+        }
+
+        .card-space:hover {
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.15);
+            border-color: rgba(188, 19, 254, 0.3);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .card h2 {
+            font-family: var(--font-mono);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-ai h2 { color: var(--ai-blue); }
+        .card-space h2 { color: var(--space-violet); }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            flex-grow: 1;
+            margin-bottom: 2rem;
+        }
+
+        .price-tag {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            display: block;
+        }
+
+        .payment-terms {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.2s;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-ai {
+            background: transparent;
+            border: 1px solid var(--ai-blue);
+            color: var(--ai-blue);
+        }
+        .btn-ai:hover { background: var(--ai-blue); color: #000; }
+
+        .btn-space {
+            background: transparent;
+            border: 1px solid var(--space-violet);
+            color: var(--space-violet);
+        }
+        .btn-space:hover { background: var(--space-violet); color: #000; }
+
+        /* Bundle Section */
+        .bundle-section {
+            background: linear-gradient(45deg, rgba(0, 243, 255, 0.05), rgba(188, 19, 254, 0.05));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .bundle-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            color: #000;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 0.25rem 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .bundle-price {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 1rem 0 0.5rem;
+            background: linear-gradient(90deg, var(--ai-blue), var(--space-violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .save-tag {
+            color: #00ff9d;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        /* Scientific Context */
+        .science-section {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            border-top: 1px solid var(--glass-border);
+            padding-top: 3rem;
+        }
+
+        .science-section p {
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+        }
+        
+        .email-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .email-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #555;
+            padding-bottom: 2rem;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* SVGs */
+        svg {
+            stroke-width: 1.5;
+            stroke: currentColor;
+            fill: none;
         }
     </style>
 </head>
 <body>
-    <div class="light-effect"></div>
+
+    <div class="stars"></div>
+
     <div class="container">
-        <h1><span class="domain">warpbubble.ai</span></h1>
-        <p>This domain is reserved.<br>Future project consideration.</p>
         
-        <!-- 低调中性免责声明 -->
-        <div class="note-section">
-            <div class="note-text">
-                This domain is reserved for future development and is not associated with any third party.
-            </div>
-        </div>
-        
-        <!-- 联系方式 -->
-        <div class="contact-section">
-            <a href="#" class="email-link" aria-label="Send email">
-                <span id="email-display">joshua369x@gmail.com</span>
-            </a>
-            <div class="contact-note">
-                For strategic inquiries only.
-            </div>
-        </div>
-    </div>
+        <!-- Hero -->
+        <header>
+            <h1>WarpBubble</h1>
+            <div class="hero-sub">Where AI Meets Spacetime. Own the domains powering the next frontier of intelligent space exploration.</div>
+        </header>
 
-    <div class="footer">
-        © <span id="currentYear"></span> warpbubble.ai — All rights reserved.
-    </div>
-
-    <script>
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        const email = 'joshua369x' + '@' + 'gmail.com';
-        const subject = '?subject=Inquiry: warpbubble.ai';
-        const mailto = 'mailto:' + email + subject;
-        document.querySelector('.email-link').href = mailto;
-        document.getElementById('email-display').textContent = email;
-    </script>
-</body>
-</html>
+        <!-- Dual Domain Showcase -->
+        <div class="domain-grid">
+            
+            <!-- Card 1: AI -->
+            <div class="card card-ai">
+                <div class="icon-box" style="color: var(--ai-blue);">
+                    <svg width="32" height="32" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V11a2 2 0 1 1-2 0V5.73C10.4 5.39 10 4.74 10 4a2 2 0 0 1 2-2z"></path>
+                        <path d="M5.26 18.27l-2.07 1.2a2 2 0 0 1-2.73-.73 2 2 0 0 1 .73-2.73l2.07-1.2a2 2 0 0 1 2.73.73 2 2 0 0 1-.73 2.73z"></path>
+                        <path d="M19.74 5.73l2.07-1.2a2 2 0 0 1 2.73.73 2 2 0 0 1-.73 2.73l-2.07 1.2a2 2 0 0 1-2.73-.73 2 2 0 0 1 .73-2.73z"></path>
+                        <rect x="2" y="10" width="20" height="4" rx="2"></rect>
+                        <line x1="12" y1="14" x2="12" y2="22"></line>
+         
