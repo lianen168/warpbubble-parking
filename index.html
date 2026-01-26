@@ -1,3 +1,8 @@
+# WarpBubble.ai - 智能层与时空科技
+
+我将创建一个融合高科技视觉效果和视频元素的优质着陆页，展示warpbubble.ai的未来科技愿景。下面是完整的实现代码：
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +12,25 @@
     <meta name="description" content="WarpBubble.ai - Premium AI domain for sale. The Intelligence Layer for Speed & Spacetime. Acquire this visionary tech brand for your next breakthrough venture.">
     <meta name="keywords" content="warpbubble, AI domain, premium domain, tech startup, futuristic brand, warp drive, artificial intelligence">
     <meta property="og:title" content="WarpBubble.ai - Premium Domain for Sale">
-    <meta property="og:description" content="The Intelligence Layer for Speed & Spacetime. Acquire this visionary tech brand.">
+    <meta property="og:description" content="The Intelligence, Layer for Speed & Spacetime. Acquire this visionary tech brand.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-cyan: #00ffff;
             --primary-purple: #9d4edd;
+            --primary-blue: #0d1b2a;
             --bg-dark: #000000;
             --bg-dark-secondary: #0f0f1a;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
             --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
             --glow-purple: 0 0 20px rgba(157, 78, 221, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         * {
@@ -168,9 +176,12 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .cta-btn.primary {
@@ -180,7 +191,7 @@
         }
 
         .cta-btn.primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
             box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.6);
         }
 
@@ -193,7 +204,7 @@
         .cta-btn.secondary:hover {
             background: rgba(0, 255, 255, 0.1);
             box-shadow: var(--glow-cyan);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.05);
         }
 
         .copyright {
@@ -207,32 +218,62 @@
 
         /* Section Styles */
         section {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
         .section-title {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
             background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            border-radius: 2px;
         }
 
         /* Concepts Section */
         .concepts {
             background: linear-gradient(180deg, var(--bg-dark-secondary) 0%, var(--bg-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concepts::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230f0f1a"/><path d="M0,50 L100,50" stroke="%2300ffff" stroke-width="0.1" stroke-opacity="0.1"/></svg>');
+            opacity: 0.1;
+            z-index: -1;
         }
 
         .concepts-grid {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: grid;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .concept-card {
@@ -244,31 +285,17 @@
             background: linear-gradient(135deg, rgba(15, 15, 26, 0.8), rgba(0, 0, 0, 0.9));
             border: 1px solid rgba(0, 255, 255, 0.1);
             border-radius: 20px;
-            transition: all 0.4s ease;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
-        }
-
-        .concept-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .concept-card:hover::before {
-            opacity: 1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .concept-card:hover {
+            transform: translateY(-10px);
             border-color: rgba(0, 255, 255, 0.3);
-            box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
-            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.15), 
+                        0 0 40px rgba(0, 255, 255, 0.1);
         }
 
         .concept-card:nth-child(even) {
@@ -279,50 +306,104 @@
             direction: ltr;
         }
 
-        .concept-image {
+        .video-container {
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            aspect-ratio: 16/10;
+            aspect-ratio: 16/9;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: translateZ(0);
         }
 
-        .concept-image img {
+        .video-container video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            display: block;
+            transition: var(--transition);
         }
 
-        .concept-card:hover .concept-image img {
+        .concept-card:hover .video-container video {
             transform: scale(1.05);
         }
 
-        .concept-image::after {
-            content: '';
+        .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(157, 78, 221, 0.2));
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(157, 78, 221, 0.15));
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: var(--transition);
         }
 
-        .concept-card:hover .concept-image::after {
+        .concept-card:hover .video-overlay {
             opacity: 1;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--primary-cyan);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .play-btn i {
+            color: var(--primary-cyan);
+            font-size: 24px;
+            transition: var(--transition);
+        }
+
+        .play-btn:hover {
+            background: rgba(0, 255, 255, 0.3);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-btn:hover i {
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .concept-content {
+            padding: 1rem;
         }
 
         .concept-content h3 {
             font-family: 'Exo 2', sans-serif;
-            font-size: 1.8rem;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
             font-weight: 700;
             color: var(--primary-cyan);
             margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .concept-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            border-radius: 2px;
         }
 
         .concept-content .concept-subtitle {
-            font-size: 1rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
             color: var(--primary-purple);
             margin-bottom: 1.5rem;
             font-weight: 500;
@@ -331,20 +412,35 @@
 
         .concept-content p {
             color: var(--text-gray);
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             line-height: 1.8;
         }
 
         .concept-content .potential {
-            padding: 1rem;
-            background: rgba(157, 78, 221, 0.1);
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(0, 255, 255, 0.05));
             border-left: 3px solid var(--primary-purple);
             border-radius: 0 10px 10px 0;
             margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .concept-content .potential::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--primary-purple);
+            opacity: 0.1;
+            border-radius: 50%;
         }
 
         .concept-content .potential strong {
             color: var(--primary-purple);
+            font-weight: 600;
         }
 
         /* Bundle Section */
@@ -352,6 +448,7 @@
             background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 50%, var(--bg-dark) 100%);
             text-align: center;
             position: relative;
+            overflow: hidden;
         }
 
         .bundle::before {
@@ -360,14 +457,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
+            width: 800px;
+            height: 800px;
             background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.15), transparent 70%);
             pointer-events: none;
+            z-index: -1;
         }
 
         .bundle-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             position: relative;
             z-index: 1;
@@ -380,6 +478,8 @@
             padding: 4rem 3rem;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            transform: perspective(1000px) rotateX(5deg);
         }
 
         .bundle-card::before {
@@ -399,13 +499,15 @@
 
         .bundle-title {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
         .bundle-subtitle {
@@ -427,13 +529,26 @@
             border: 1px solid rgba(0, 255, 255, 0.2);
             border-radius: 15px;
             padding: 2rem;
-            min-width: 250px;
-            transition: all 0.3s ease;
+            min-width: 280px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
         .bundle-item:hover {
+            transform: translateY(-10px);
             border-color: var(--primary-cyan);
             box-shadow: var(--glow-cyan);
+        }
+
+        .bundle-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
         }
 
         .bundle-item .domain {
@@ -456,6 +571,19 @@
             background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
             border-radius: 15px;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+            min-width: 300px;
+        }
+
+        .bundle-total::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-cyan));
         }
 
         .bundle-total .label {
@@ -466,7 +594,7 @@
 
         .bundle-total .total-price {
             font-family: 'Exo 2', sans-serif;
-            font-size: 3rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
             -webkit-background-clip: text;
@@ -478,6 +606,7 @@
             font-size: 1rem;
             color: #00ff88;
             margin-top: 0.5rem;
+            font-weight: 600;
         }
 
         .bundle-scarcity {
@@ -488,6 +617,8 @@
             border-radius: 10px;
             color: #ff8888;
             font-weight: 500;
+            max-width: 600px;
+            margin: 2rem auto;
         }
 
         .bundle-cta {
@@ -501,8 +632,9 @@
         /* Footer */
         footer {
             background: var(--bg-dark);
-            padding: 4rem 2rem 2rem;
+            padding: 5rem 2rem 3rem;
             border-top: 1px solid rgba(0, 255, 255, 0.1);
+            position: relative;
         }
 
         .footer-content {
@@ -519,6 +651,18 @@
             font-size: 1.2rem;
             color: var(--primary-cyan);
             margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-cyan);
         }
 
         .footer-section p, .footer-section a {
@@ -531,6 +675,30 @@
 
         .footer-section a:hover {
             color: var(--primary-cyan);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.1);
+            color: var(--primary-cyan);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-cyan);
+            color: var(--bg-dark);
+            transform: translateY(-5px);
         }
 
         .footer-bottom {
@@ -546,14 +714,31 @@
 
         .footer-disclaimer {
             max-width: 800px;
-            margin: 1rem auto 0;
+            margin: 1.5rem auto 0;
             font-size: 0.8rem;
             color: rgba(160, 160, 160, 0.6);
             line-height: 1.6;
         }
 
+        /* Floating Elements */
+        .float-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(0) rotate(180deg); }
+            75% { transform: translateY(30px) rotate(270deg); }
+        }
+
         /* Responsive */
-        @media (max-width: 968px) {
+        @media (max-width: 1100px) {
             .concept-card {
                 grid-template-columns: 1fr;
             }
@@ -561,14 +746,14 @@
             .concept-card:nth-child(even) {
                 direction: ltr;
             }
-
-            .warp-overlay {
-                width: 400px;
-                height: 400px;
+            
+            .video-container {
+                max-width: 600px;
+                margin: 0 auto;
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .hero {
                 padding: 1rem;
             }
@@ -599,28 +784,38 @@
             }
 
             section {
-                padding: 4rem 1rem;
+                padding: 5rem 1rem;
+            }
+            
+            .section-title {
+                margin-bottom: 3rem;
+            }
+            
+            .bundle-total {
+                min-width: 100%;
             }
         }
 
-        /* Floating Elements */
-        .float-element {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
-            animation: float 20s infinite ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-30px) rotate(90deg); }
-            50% { transform: translateY(0) rotate(180deg); }
-            75% { transform: translateY(30px) rotate(270deg); }
+        @media (max-width: 480px) {
+            .bundle-items {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .bundle-item {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Elements -->
+    <div class="float-element" style="width: 100px; height: 100px; top: 15%; left: 10%; animation-duration: 25s;"></div>
+    <div class="float-element" style="width: 150px; height: 150px; bottom: 20%; right: 15%; animation-duration: 30s;"></div>
+    <div class="float-element" style="width: 80px; height: 80px; top: 30%; right: 20%; animation-duration: 18s;"></div>
+    <div class="float-element" style="width: 120px; height: 120px; bottom: 15%; left: 25%; animation-duration: 22s;"></div>
+
     <!-- Hero Section -->
     <section class="hero">
         <canvas id="particle-canvas"></canvas>
@@ -632,8 +827,12 @@
             <p class="hero-tagline">A unified framework for intelligent bubbles across physics, mobility, and beyond.</p>
             
             <div class="cta-container">
-                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">Acquire the Domain</a>
-                <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">Contact for Offers</a>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">
+                    <i class="fas fa-rocket"></i> Acquire the Domain
+                </a>
+                <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">
+                    <i class="fas fa-envelope"></i> Contact for Offers
+                </a>
             </div>
         </div>
         
@@ -647,8 +846,15 @@
         <div class="concepts-grid">
             <!-- Concept 1: Warp Physics -->
             <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="concept-image">
-                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80" alt="Warp Physics Visualization">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-floating-robot-99786-small.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="concept-content">
                     <h3>Warp Physics</h3>
@@ -663,8 +869,15 @@
 
             <!-- Concept 2: FSD Safety Bubble -->
             <div class="concept-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="concept-image">
-                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80" alt="Autonomous Vehicle Safety">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-autonomous-autonomous-vehicle-on-a-test-track-4997-small.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="concept-content">
                     <h3>FSD "Safety Bubble"</h3>
@@ -679,8 +892,15 @@
 
             <!-- Concept 3: Hypersonic Flight -->
             <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="concept-image">
-                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Hypersonic Aircraft">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-passenger-jet-flying-above-the-clouds-43252-small.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="concept-content">
                     <h3>Hypersonic Flight</h3>
@@ -695,8 +915,15 @@
 
             <!-- Concept 4: Orbital Logistics -->
             <div class="concept-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="concept-image">
-                    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80" alt="Orbital Infrastructure">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-satellites-and-stars-in-the-sky-43054-small.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="5video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="concept-content">
                     <h3>Orbital Logistics</h3>
@@ -711,8 +938,15 @@
 
             <!-- Concept 5: Quantum Mesh -->
             <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="concept-image">
-                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="Quantum Network">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-connection-of-cubes-forming-a-structure-43053-small.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="concept-content">
                     <h3>Quantum Mesh</h3>
@@ -727,8 +961,15 @@
 
             <!-- Concept 6: Exotic Hulls -->
             <div class="concept-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="concept-image">
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Metamaterial Technology">
+                <div class="video-container">
+                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80">
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-3d-render-of-a-abstract-shape-43050-small.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay"></div>
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
                 </div>
                 <div class="concept-content">
                     <h3>Exotic Hulls</h3>
@@ -773,8 +1014,12 @@
                 </div>
                 
                 <div class="bundle-cta">
-                    <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">Make an Offer</a>
-                    <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">Direct Contact</a>
+                    <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">
+                        <i class="fas fa-rocket"></i> Make an Offer
+                    </a>
+                    <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">
+                        <i class="fas fa-envelope"></i> Direct Contact
+                    </a>
                 </div>
             </div>
         </div>
@@ -787,29 +1032,36 @@
                 <h4>WarpBubble.ai</h4>
                 <p>The Intelligence Layer for Speed & Spacetime</p>
                 <p>Premium domain available for acquisition by visionary founders and enterprises.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
             </div>
             
             <div class="footer-section">
                 <h4>Contact</h4>
                 <a href="mailto:domains@warpbubble.ai">domains@warpbubble.ai</a>
                 <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank">Afternic Listing</a>
+                <a href="#">Domain Portfolio</a>
             </div>
             
             <div class="footer-section">
-                <h4>Domain Portfolio</h4>
-                <p>warpbubble.ai — $42,000</p>
-                <p>warpbubble.space — $12,000</p>
-                <p>Bundle Available — $51,000</p>
+                <h4>Legal</h4>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Disclaimer</a>
             </div>
         </div>
         
         <div class="footer-bottom">
             <p>© 2026 WarpBubble Ecosystem. All rights reserved.</p>
             <p class="footer-disclaimer">
-                This website represents a premium domain for sale. The concepts, technologies, and applications described herein are visionary projections of potential use cases. Acquiring this domain provides branding rights only. WarpBubble.ai is not affiliated with any existing aerospace, automotive, or technology company. All imagery used for illustrative purposes only.
+                This website represents a premium domain for sale. The concepts, technologies, and applications described herein are visionary projections of potential use cases. Acquiring this domain provides branding rights only. WarpBubble.ai is not affiliated with any existing aerospace, automotive, or technology company. All imagery and videos used for illustrative purposes only.
             </p>
         </div>
-    </footer>
+    </foot>er>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -930,9 +1182,23 @@
                 const dy = mouse.y - particle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 100) {
+                if (,distance < 100) {
                     particle.x -= dx * 0.02;
                     particle.y -= dy * 0.02;
+                }
+            });
+        });
+
+        // Video play buttons
+        document.querySelectorAll('.play-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const video = this.parentElement.querySelector('video');
+                if (video.paused) {
+                    video.play();
+                    this.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    video.pause();
+                    this.innerHTML = '<i class="fas fa-play"></i>';
                 }
             });
         });
@@ -959,3 +1225,5 @@
     </script>
 </body>
 </html>
+```
+
