@@ -7,25 +7,22 @@
     <meta name="description" content="WarpBubble.ai - Premium AI domain for sale. The Intelligence Layer for Speed & Spacetime. Acquire this visionary tech brand for your next breakthrough venture.">
     <meta name="keywords" content="warpbubble, AI domain, premium domain, tech startup, futuristic brand, warp drive, artificial intelligence">
     <meta property="og:title" content="WarpBubble.ai - Premium Domain for Sale">
-    <meta property="og:description" content="The Intelligence, Layer for Speed & Spacetime. Acquire this visionary tech brand.">
+    <meta property="og:description" content="The Intelligence Layer for Speed & Spacetime. Acquire this visionary tech brand.">
     <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary-cyan: #00ffff;
             --primary-purple: #9d4edd;
-            --primary-blue: #0d1b2a;
             --bg-dark: #000000;
             --bg-dark-secondary: #0f0f1a;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
-            --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
-            --glow-purple: 0 0 20px rgba(157, 78, 221, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --glow-cyan: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 30px rgba(0, 255, 255, 0.4);
+            --glow-purple: 0 0 15px rgba(157, 78, 221, 0.7), 0 0 30px rgba(157, 78, 221, 0.4);
         }
 
         * {
@@ -46,21 +43,13 @@
             line-height: 1.6;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
+        /* Custom Scrollbar - More subtle */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-cyan); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary-purple); }
 
-        ::-webkit-scrollbar-track {
-            background: var(--bg-dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, var(--primary-cyan), var(--primary-purple));
-            border-radius: 4px;
-        }
-
-        /* Hero Section */
+        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -80,59 +69,48 @@
             width: 100%;
             height: 100%;
             z-index: 0;
+            opacity: 0.5;
         }
 
+        /* Warping/Distortion Effect using CSS animation */
         .warp-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
+            width: 100vw;
+            height: 100vh;
             background: radial-gradient(ellipse at center, 
-                rgba(0, 255, 255, 0.1) 0%, 
-                rgba(157, 78, 221, 0.05) 30%, 
-                transparent 70%);
-            border-radius: 50%;
-            animation: warpPulse 8s ease-in-out infinite;
+                rgba(0, 255, 255, 0.08) 0%, 
+                rgba(157, 78, 221, 0.04) 40%, 
+                transparent 80%);
             z-index: 1;
             pointer-events: none;
+            animation: warpPulse 15s ease-in-out infinite;
         }
 
         @keyframes warpPulse {
-            0%, 100% { 
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.6;
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.2);
-                opacity: 1;
-            }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.8; }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         .hero-title {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(3rem, 10vw, 6rem);
+            font-size: clamp(3.5rem, 10vw, 7rem);
             font-weight: 900;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--text-white) 50%, var(--primary-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: var(--glow-cyan);
+            text-shadow: var(--glow-cyan), 0 0 10px var(--primary-purple);
             margin-bottom: 1rem;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes titleGlow {
-            0% { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5)); }
-            100% { filter: drop-shadow(0 0 40px rgba(157, 78, 221, 0.8)); }
         }
 
         .hero-subtitle {
@@ -141,14 +119,14 @@
             font-weight: 300;
             color: var(--primary-cyan);
             margin-bottom: 1.5rem;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
         }
 
         .hero-tagline {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--text-gray);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto 3rem;
             font-weight: 300;
         }
@@ -171,12 +149,9 @@
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            transition: var(--transition);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .cta-btn.primary {
@@ -186,8 +161,8 @@
         }
 
         .cta-btn.primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.6);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 35px rgba(0, 255, 255, 0.8), 0 0 70px rgba(157, 78, 221, 0.6);
         }
 
         .cta-btn.secondary {
@@ -197,9 +172,9 @@
         }
 
         .cta-btn.secondary:hover {
-            background: rgba(0, 255, 255, 0.1);
+            background: rgba(0, 255, 255, 0.15);
             box-shadow: var(--glow-cyan);
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-5px) scale(1.02);
         }
 
         .copyright {
@@ -209,9 +184,10 @@
             font-size: 0.8rem;
             color: var(--text-gray);
             opacity: 0.6;
+            z-index: 2;
         }
 
-        /* Section Styles */
+        /* --- SECTION STYLES --- */
         section {
             padding: 8rem 2rem;
             position: relative;
@@ -219,53 +195,24 @@
 
         .section-title {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 800;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
             text-align: center;
             margin-bottom: 5rem;
             background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
-            border-radius: 2px;
-        }
-
-        /* Concepts Section */
+        /* --- CONCEPTS SECTION --- */
         .concepts {
             background: linear-gradient(180deg, var(--bg-dark-secondary) 0%, var(--bg-dark) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .concepts::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230f0f1a"/><path d="M0,50 L100,50" stroke="%2300ffff" stroke-width="0.1" stroke-opacity="0.1"/></svg>');
-            opacity: 0.1;
-            z-index: -1;
         }
 
         .concepts-grid {
-            max-width: 1600px;
+            max-width: 1500px;
             margin: 0 auto;
             display: grid;
             gap: 5rem;
@@ -274,235 +221,185 @@
         .concept-card {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(15, 15, 26, 0.8), rgba(0, 0, 0, 0.9));
-            border: 1px solid rgba(0, 255, 255, 0.1);
-            border-radius: 20px;
-            transition: var(--transition);
+            padding: 3rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 255, 0.15);
+            border-radius: 25px;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .concept-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .concept-card:hover::before {
+            opacity: 1;
         }
 
         .concept-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(0, 255, 255, 0.3);
-            box-shadow: 0 20px 50px rgba(0, 255, 255, 0.15), 
-                        0 0 40px rgba(0, 255, 255, 0.1);
+            border-color: var(--primary-cyan);
+            box-shadow: var(--glow-cyan), 0 0 60px rgba(157, 78, 221, 0.1);
+            transform: translateY(-8px);
         }
 
         .concept-card:nth-child(even) {
+            grid-template-columns: 1fr 1fr;
             direction: rtl;
         }
 
         .concept-card:nth-child(even) > * {
             direction: ltr;
         }
-
-        .video-container {
+        
+        /* Video & Image Container */
+        .media-container {
             position: relative;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            aspect-ratio: 16/9;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            transform: translateZ(0);
+            aspect-ratio: 16/9; /* More video standard */
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
         }
 
-        .video-container video {
+        .media-container video, .media-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
-            transition: var(--transition);
+            transition: opacity 0.5s ease;
         }
-
-        .concept-card:hover .video-container video {
-            transform: scale(1.05);
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(157, 78, 221, 0.15));
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .concept-card:hover .video-overlay {
-            opacity: 1;
-        }
-
-        .play-btn {
+        
+        .media-container .overlay-play {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 2px solid var(--primary-cyan);
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 50%;
+            border: 2px solid var(--primary-cyan);
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: var(--transition);
+            opacity: 0.9;
+            transition: all 0.3s ease;
             z-index: 10;
         }
-
-        .play-btn i {
-            color: var(--primary-cyan);
-            font-size: 24px;
-            transition: var(--transition);
+        
+        .media-container .overlay-play:hover {
+            background: var(--primary-cyan);
+            box-shadow: 0 0 30px var(--primary-cyan);
+        }
+        
+        .media-container .overlay-play svg {
+            fill: var(--text-white);
+            width: 30px;
+            height: 30px;
+            transform: translateX(3px);
         }
 
-        .play-btn:hover {
-            background: rgba(0, 255, 255, 0.3);
-            transform: translate(-50%, -50%) scale(1.1);
+        /* Video Element Styling */
+        .concept-video {
+            display: none; /* Hidden by default */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .play-btn:hover i {
-            color: white;
-            transform: scale(1.2);
+        .concept-card.video-active .media-container img {
+            opacity: 0; /* Hide placeholder */
         }
-
-        .concept-content {
-            padding: 1rem;
+        .concept-card.video-active .concept-video {
+            display: block; /* Show video */
         }
 
         .concept-content h3 {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: 2rem;
             font-weight: 700;
             color: var(--primary-cyan);
             margin-bottom: 0.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .concept-content h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
-            border-radius: 2px;
+            text-shadow: var(--glow-cyan);
         }
 
         .concept-content .concept-subtitle {
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: 1.1rem;
             color: var(--primary-purple);
             margin-bottom: 1.5rem;
             font-weight: 500;
-            font-style: italic;
         }
 
         .concept-content p {
             color: var(--text-gray);
-            margin-bottom: 1.2rem;
-            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
         .concept-content .potential {
-            padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(0, 255, 255, 0.05));
-            border-left: 3px solid var(--primary-purple);
-            border-radius: 0 10px 10px 0;
-            margin-top: 1.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .concept-content .potential::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 30px;
-            height: 30px;
-            background: var(--primary-purple);
-            opacity: 0.1;
-            border-radius: 50%;
+            padding: 1.2rem;
+            background: rgba(0, 255, 255, 0.05);
+            border-left: 4px solid var(--primary-cyan);
+            border-radius: 0 15px 15px 0;
+            margin-top: 1.8rem;
+            color: var(--text-white);
+            font-size: 0.95rem;
         }
 
         .concept-content .potential strong {
-            color: var(--primary-purple);
-            font-weight: 600;
+            color: var(--primary-cyan);
         }
 
-        /* Bundle Section */
+        /* --- BUNDLE SECTION --- */
         .bundle {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 50%, var(--bg-dark) 100%);
+            background: linear-gradient(180deg, var(--bg-dark-secondary) 0%, var(--bg-dark) 100%);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bundle::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.15), transparent 70%);
-            pointer-events: none;
-            z-index: -1;
+            padding: 10rem 2rem;
         }
 
         .bundle-container {
             max-width: 1000px;
             margin: 0 auto;
             position: relative;
-            z-index: 1;
         }
 
         .bundle-card {
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(0, 255, 255, 0.05));
-            border: 2px solid rgba(157, 78, 221, 0.3);
+            background: radial-gradient(circle at 50% 50%, rgba(157, 78, 221, 0.15) 0%, rgba(0, 0, 0, 0.7) 70%);
+            border: 3px solid;
+            border-image: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple)) 1;
             border-radius: 30px;
             padding: 4rem 3rem;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            transform: perspective(1000px) rotateX(5deg);
         }
-
-        .bundle-card::before {
-            content: 'EXCLUSIVE';
+        
+        .bundle-card::after {
+            content: '';
             position: absolute;
-            top: 20px;
-            right: -35px;
-            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
-            color: var(--bg-dark);
-            padding: 0.5rem 3rem;
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            transform: rotate(45deg);
-            letter-spacing: 0.1em;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 255, 255, 0.02) 10px, rgba(0, 255, 255, 0.02) 20px);
+            opacity: 0.4;
         }
 
         .bundle-title {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
             background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
         }
 
         .bundle-subtitle {
@@ -514,82 +411,52 @@
         .bundle-items {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 3rem;
             flex-wrap: wrap;
             margin-bottom: 2rem;
         }
 
         .bundle-item {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid var(--primary-cyan);
             border-radius: 15px;
             padding: 2rem;
-            min-width: 280px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            min-width: 220px;
+            transition: all 0.3s ease;
         }
 
         .bundle-item:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-cyan);
-            box-shadow: var(--glow-cyan);
-        }
-
-        .bundle-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-cyan), var(--primary-purple));
+            border-color: var(--primary-purple);
+            box-shadow: var(--glow-purple);
+            transform: scale(1.05);
         }
 
         .bundle-item .domain {
             font-family: 'Exo 2', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary-cyan);
             margin-bottom: 0.5rem;
         }
 
         .bundle-item .price {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-white);
         }
 
         .bundle-total {
-            margin: 2rem 0;
-            padding: 2rem;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
-            border-radius: 15px;
+            margin: 3rem 0;
+            padding: 1.5rem 3rem;
+            background: rgba(0, 255, 255, 0.08);
+            border-radius: 20px;
             display: inline-block;
-            position: relative;
-            overflow: hidden;
-            min-width: 300px;
-        }
-
-        .bundle-total::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-purple), var(--primary-cyan));
-        }
-
-        .bundle-total .label {
-            font-size: 1rem;
-            color: var(--text-gray);
-            margin-bottom: 0.5rem;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
         }
 
         .bundle-total .total-price {
             font-family: 'Exo 2', sans-serif;
-            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-size: 3.5rem;
             font-weight: 900;
             background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
             -webkit-background-clip: text;
@@ -597,23 +464,14 @@
             background-clip: text;
         }
 
-        .bundle-total .savings {
-            font-size: 1rem;
-            color: #00ff88;
-            margin-top: 0.5rem;
-            font-weight: 600;
-        }
-
         .bundle-scarcity {
             margin: 2rem 0;
-            padding: 1.5rem;
+            padding: 1rem;
             background: rgba(255, 100, 100, 0.1);
             border: 1px solid rgba(255, 100, 100, 0.3);
             border-radius: 10px;
-            color: #ff8888;
+            color: #ffbaba;
             font-weight: 500;
-            max-width: 600px;
-            margin: 2rem auto;
         }
 
         .bundle-cta {
@@ -621,79 +479,42 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
-        /* Footer */
+        /* --- FOOTER --- */
         footer {
             background: var(--bg-dark);
-            padding: 5rem 2rem 3rem;
+            padding: 5rem 2rem 2rem;
             border-top: 1px solid rgba(0, 255, 255, 0.1);
-            position: relative;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .footer-section h4 {
             font-family: 'Exo 2', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--primary-cyan);
             margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .footer-section h4::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--primary-cyan);
         }
 
         .footer-section p, .footer-section a {
             color: var(--text-gray);
             text-decoration: none;
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             transition: color 0.3s ease;
         }
 
         .footer-section a:hover {
             color: var(--primary-cyan);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(0, 255, 255, 0.1);
-            color: var(--primary-cyan);
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--primary-cyan);
-            color: var(--bg-dark);
-            transform: translateY(-5px);
         }
 
         .footer-bottom {
@@ -708,43 +529,26 @@
         }
 
         .footer-disclaimer {
-            max-width: 800px;
+            max-width: 900px;
             margin: 1.5rem auto 0;
             font-size: 0.8rem;
-            color: rgba(160, 160, 160, 0.6);
+            color: rgba(160, 160, 160, 0.7);
             line-height: 1.6;
         }
 
-        /* Floating Elements */
-        .float-element {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
-            animation: float 20s infinite ease-in-out;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-30px) rotate(90deg); }
-            50% { transform: translateY(0) rotate(180deg); }
-            75% { transform: translateY(30px) rotate(270deg); }
-        }
-
-        /* Responsive */
+        /* Responsive Adjustments */
         @media (max-width: 1100px) {
             .concept-card {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem;
             }
 
             .concept-card:nth-child(even) {
                 direction: ltr;
             }
-            
-            .video-container {
-                max-width: 600px;
-                margin: 0 auto;
+            .concept-card:nth-child(even) > * {
+                direction: ltr;
             }
         }
 
@@ -753,9 +557,13 @@
                 padding: 1rem;
             }
 
+            .warp-overlay {
+                width: 100vw;
+                height: 100vh;
+            }
+
             .cta-container {
                 flex-direction: column;
-                width: 100%;
             }
 
             .cta-btn {
@@ -764,53 +572,23 @@
 
             .copyright {
                 position: relative;
-                bottom: 0;
+                bottom: -3rem;
                 right: 0;
-                margin-top: 3rem;
                 text-align: center;
-            }
-
-            .bundle-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .bundle-card::before {
-                display: none;
-            }
-
-            section {
-                padding: 5rem 1rem;
+                margin-top: 2rem;
             }
             
             .section-title {
                 margin-bottom: 3rem;
             }
             
-            .bundle-total {
-                min-width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .bundle-items {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .bundle-item {
-                width: 100%;
-                max-width: 300px;
+            .bundle-card {
+                padding: 3rem 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Elements -->
-    <div class="float-element" style="width: 100px; height: 100px; top: 15%; left: 10%; animation-duration: 25s;"></div>
-    <div class="float-element" style="width: 150px; height: 150px; bottom: 20%; right: 15%; animation-duration: 30s;"></div>
-    <div class="float-element" style="width: 80px; height: 80px; top: 30%; right: 20%; animation-duration: 18s;"></div>
-    <div class="float-element" style="width: 120px; height: 120px; bottom: 15%; left: 25%; animation-duration: 22s;"></div>
-
     <!-- Hero Section -->
     <section class="hero">
         <canvas id="particle-canvas"></canvas>
@@ -822,12 +600,8 @@
             <p class="hero-tagline">A unified framework for intelligent bubbles across physics, mobility, and beyond.</p>
             
             <div class="cta-container">
-                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">
-                    <i class="fas fa-rocket"></i> Acquire the Domain
-                </a>
-                <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">
-                    <i class="fas fa-envelope"></i> Contact for Offers
-                </a>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">Acquire the Domain</a>
+                <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">Contact for Offers</a>
             </div>
         </div>
         
@@ -836,146 +610,88 @@
 
     <!-- Concepts Section -->
     <section class="concepts">
-        <h2 class="section-title" data-aos="fade-up">The WarpBubble Ecosystem</h2>
+        <h2 class="section-title" data-aos="fade-up">The WarpBubble Ecosystem: Vision in Motion</h2>
         
         <div class="concepts-grid">
-            <!-- Concept 1: Warp Physics -->
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-futuristic-floating-robot-99786-small.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="concept-content">
-                    <h3>Warp Physics</h3>
-                    <p class="concept-subtitle">Alcubierre Metric AI — Simulating negative energy densities for theoretical faster-than-light propulsion bubbles.</p>
-                    <p>Leveraging neural networks to model exotic matter requirements and optimize Alcubierre drive metrics for future interstellar travel. Our AI systems analyze spacetime curvature patterns and energy distribution models that were previously computationally intractable.</p>
-                    <p>By combining quantum field theory simulations with advanced machine learning, WarpBubble.ai could pioneer the tools needed to turn theoretical warp drives into engineering blueprints.</p>
-                    <div class="potential">
-                        <strong>Potential:</strong> Breakthrough simulation tools for next-gen propulsion research, enabling humanity's first steps toward interstellar exploration.
-                    </div>
-                </div>
-            </div>
+            <!-- Video Data Structure -->
+            <!-- NOTE: Replace these placeholder URLs with actual optimized WebM/MP4 files for best performance -->
+            <script type="application/javascript">
+                const conceptsData = [
+                    {
+                        title: "Warp Physics",
+                        subtitle: "Alcubierre Metric AI — Simulating negative energy densities for theoretical faster-than-light propulsion bubbles.",
+                        description: "Leveraging neural networks to model exotic matter requirements and optimize Alcubierre drive metrics for future interstellar travel. Our AI systems analyze spacetime curvature patterns and energy distribution models that were previously computationally intractable.",
+                        potential: "Breakthrough simulation tools for next-gen propulsion research, enabling humanity's first steps toward interstellar exploration.",
+                        videoUrl: "https://cdn.pixabay.com/vimeo/725240863/wormhole%20-%2085600.mp4?width=640&hash=59305a9d361682c954d4e633e75e4b08f4308c40a365d3c30d3ff301cc41ff03" // Placeholder: Wormhole/Sci-fi travel
+                    },
+                    {
+                        title: "FSD 'Safety Bubble'",
+                        subtitle: "Predictive safety analysis for autonomous vehicle fleets.",
+                        description: "Extending vision-only 360° safety buffers to Robotaxi networks, enabling zero-collision, warp-like smooth traffic flow in urban environments. Each vehicle maintains an intelligent protective envelope that dynamically adjusts based on speed and environment.",
+                        potential: "Revolutionizing ground mobility with seamless, predictive coordination — eliminating traffic fatalities while maximizing urban throughput.",
+                        videoUrl: "https://cdn.pixabay.com/vimeo/724722182/futuristic%20-%2085337.mp4?width=640&hash=01f94e08a9c559e6c27316c30a29c539502815f5e635e109e69c84d8c4935861" // Placeholder: Futuristic City/Traffic
+                    },
+                    {
+                        title: "Hypersonic Flight",
+                        subtitle: "Shockwave Bubble — Supercavitation and silent supersonic transport.",
+                        description: "Intelligent plasma/shear layer control to eliminate sonic booms, creating seamless high-speed atmospheric travel. Our AI manages dynamic flow control surfaces and plasma actuators in real-time, creating a protective bubble around hypersonic vehicles.",
+                        potential: "Quiet, efficient global travel at Mach 5+ — New York to Tokyo in 2 hours, with zero sonic disturbance.",
+                        videoUrl: "https://cdn.pixabay.com/vimeo/714100762/aerospace%20-%2083409.mp4?width=640&hash=e06777ff93cc1d6e754293436067086855a6f37825953c3b285507d16844b8a4" // Placeholder: High-speed jet/concept plane
+                    },
+                    {
+                        title: "Orbital Logistics",
+                        subtitle: "Territorial Bubbles + Dyson Swarm Coordination — AI-orchestrated protective domains around orbital assets.",
+                        description: "Managing complex multi-body orbital mechanics for satellite constellations and megastructure networks. Each orbital asset maintains an intelligent territorial bubble that coordinates with neighbors to optimize coverage and energy collection.",
+                        potential: "Foundation for space-based infrastructure dominance — from satellite internet to full-scale Dyson swarm construction.",
+                        videoUrl: "https://cdn.pixabay.com/vimeo/739156739/orbit%20-%2087610.mp4?width=640&hash=99d5556e1a3d7a46b61d0c83a3f07d85c1075e55532992c060c9589136a346d7" // Placeholder: Space station/Orbit
+                    },
+                    {
+                        title: "Quantum Mesh",
+                        subtitle: "Entanglement Bubbles — Instantaneous communication across distances.",
+                        description: "Harnessing quantum entanglement for latency-free global and interstellar data transfer. Our AI manages networks of entangled particle pairs, creating 'bubbles' of quantum-correlated nodes that synchronize instantaneously.",
+                        potential: "Zero-latency networks for AI and blockchain — enabling truly decentralized systems with instantaneous global consensus.",
+                        videoUrl: "https://cdn.pixabay.com/vimeo/726733860/quantum%20-%2085889.mp4?width=640&hash=323019e3545730f3271a7190af30230395d11361c3337e28084025c53c661f14" // Placeholder: Abstract digital/Quantum structure
+                    },
+                    {
+                        title: "Exotic Hulls",
+                        subtitle: "Metamaterial Casings — Adaptive defensive/stealth envelopes.",
+                        description: "Programmable matter shells that dynamically reshape for optimal protection and performance. Our AI controls metamaterial surfaces at the molecular level, enabling real-time adaptation to threats and environmental conditions.",
+                        potential: "Next-gen aerospace and defense materials — vehicles that can morph, heal, and adapt to any environment or threat profile.",
+                        videoUrl: "https://cdn.pixabay.com/vimeo/726208275/ai%20-%2085850.mp4?width=640&hash=34a14ddb8c84431f78301d395f16ff96761500c3867c110403490d48f5f8f675" // Placeholder: Abstract material science/Hologram
+                    }
+                ];
 
-            <!-- Concept 2: FSD Safety Bubble -->
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="150">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-autonomous-autonomous-vehicle-on-a-test-track-4997-small.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="concept-content">
-                    <h3>FSD "Safety Bubble"</h3>
-                    <p class="concept-subtitle">Predictive safety analysis for autonomous vehicle fleets.</p>
-                    <p>Extending Tesla-style vision-only 360° safety buffers to Robotaxi networks, enabling zero-collision, warp-like smooth traffic flow in urban environments. Each vehicle maintains an intelligent protective envelope that dynamically adjusts based on speed, traffic density, and environmental conditions.</p>
-                    <p>Our AI orchestrates thousands of overlapping safety bubbles, ensuring seamless coordination between autonomous vehicles while maximizing throughput and minimizing risk.</p>
-                    <div class="potential">
-                        <strong>Potential:</strong> Revolutionizing ground mobility with seamless, predictive coordination — eliminating traffic fatalities while increasing urban transportation efficiency by 10x.
-                    </div>
-                </div>
-            </div>
+                const grid = document.querySelector('.concepts-grid');
 
-            <!-- Concept 3: Hypersonic Flight -->
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-passenger-jet-flying-above-the-clouds-43252-small.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="concept-content">
-                    <h3>Hypersonic Flight</h3>
-                    <p class="concept-subtitle">Shockwave Bubble — Supercavitation and silent supersonic transport.</p>
-                    <p>Intelligent plasma/shear layer control to eliminate sonic booms, creating seamless high-speed atmospheric travel. Our AI manages dynamic flow control surfaces and plasma actuators in real-time, creating a protective bubble of controlled air around hypersonic vehicles.</p>
-                    <p>This technology enables aircraft to slip through the atmosphere at unprecedented speeds without the destructive shockwaves that have historically limited supersonic flight over populated areas.</p>
-                    <div class="potential">
-                        <strong>Potential:</strong> Quiet, efficient global travel at Mach 5+ — New York to Tokyo in 2 hours, London to Sydney in 3, with zero sonic disturbance.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Concept 4: Orbital Logistics -->
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="250">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-satellites-and-stars-in-the-sky-43054-small.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="5video-overlay"></div>
-                    <div class="play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="concept-content">
-                    <h3>Orbital Logistics</h3>
-                    <p class="concept-subtitle">Territorial Bubbles + Dyson Swarm Coordination — AI-orchestrated protective domains around orbital assets.</p>
-                    <p>Managing complex multi-body orbital mechanics for satellite constellations, space stations, and eventually megastructure networks. Each orbital asset maintains an intelligent territorial bubble that coordinates with neighbors, avoiding collisions while optimizing coverage and energy collection.</p>
-                    <p>Scaling from current LEO constellations to future Dyson swarm components, our AI provides the coordination layer for humanity's expansion into space.</p>
-                    <div class="potential">
-                        <strong>Potential:</strong> Foundation for space-based infrastructure dominance — from satellite internet to solar power satellites to full-scale Dyson swarm construction.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Concept 5: Quantum Mesh -->
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-connection-of-cubes-forming-a-structure-43053-small.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="concept-content">
-                    <h3>Quantum Mesh</h3>
-                    <p class="concept-subtitle">Entanglement Bubbles — Instantaneous communication across distances.</p>
-                    <p>Harnessing quantum entanglement for latency-free global and interstellar data transfer. Our AI manages networks of entangled particle pairs, creating "bubbles" of quantum-correlated nodes that can share information instantaneously regardless of physical separation.</p>
-                    <p>While not violating causality for information transfer, these entanglement bubbles enable unprecedented synchronization and coordination for distributed AI systems, financial networks, and deep space communications.</p>
-                    <div class="potential">
-                        <strong>Potential:</strong> Zero-latency networks for AI and blockchain — enabling truly decentralized systems with instantaneous global consensus.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Concept 6: Exotic Hulls -->
-            <div class="concept-card" data-aos="fade-up" data-aos-delay="350">
-                <div class="video-container">
-                    <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80">
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-3d-render-of-a-abstract-shape-43050-small.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-overlay"></div>
-                    <div class="play-btn">
-                        <i class="fas fa-play"></i>
-                    </div>
-                </div>
-                <div class="concept-content">
-                    <h3>Exotic Hulls</h3>
-                    <p class="concept-subtitle">Metamaterial Casings — Adaptive defensive/stealth envelopes.</p>
-                    <p>Programmable matter shells that dynamically reshape for optimal protection and performance. Our AI controls metamaterial surfaces at the molecular level, enabling real-time adaptation to threats, environmental conditions, and mission requirements.</p>
-                    <p>From radar-absorbing stealth coatings to impact-resistant defensive layers to thermally adaptive heat shields, exotic hulls represent the ultimate in protective bubble technology.</p>
-                    <div class="potential">
-                        <strong>Potential:</strong> Next-gen aerospace and defense materials — vehicles that can morph, heal, and adapt to any environment or threat profile.
-                    </div>
-                </div>
-            </div>
+                conceptsData.forEach((data, index) => {
+                    const isEven = (index + 1) % 2 === 0;
+                    
+                    const cardHtml = `
+                        <div class="concept-card" data-aos="fade-up" data-aos-delay="${100 + index * 50}" data-index="${index}">
+                            <div class="media-container">
+                                <img src="https://images.unsplash.com/photo-1444703687981-6dab251b1442?w=800&q=80&random=${index}" alt="${data.title} Concept Image" class="static-placeholder">
+                                <video class="concept-video" loop muted playsinline>
+                                    <source src="${data.videoUrl}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="overlay-play">
+                                    <svg viewBox="0 0 24 24"><path d="M6 3l14 9-14 9V3z"/></svg>
+                                </div>
+                            </div>
+                            <div class="concept-content">
+                                <h3>${data.title}</h3>
+                                <p class="concept-subtitle">${data.subtitle}</p>
+                                <p>${data.description.split('. ').slice(0, 1)[0]}.</p>
+                                <p>${data.description.split('. ').slice(1).join('. ') || ''}</p>
+                                <div class="potential">
+                                    <strong>Potential:</strong> ${data.potential}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += cardHtml;
+                });
+            </script>
         </div>
     </section>
 
@@ -1000,21 +716,16 @@
                 <div class="bundle-total">
                     <p class="label">Bundle Price</p>
                     <p class="total-price">$51,000</p>
-                    <p class="savings">You save $3,000</p>
+                    <p class="savings">You save $3,000 (5.5%)</p>
                 </div>
                 
                 <div class="bundle-scarcity">
-                    🚀 <strong>Premium .ai</strong> for AI leadership + <strong>.space</strong> for cosmic expansion<br>
-                    Own the complete WarpBubble brand across Earth and the stars.
+                    🚀 <strong>.ai</strong> for AI Leadership + <strong>.space</strong> for Cosmic Expansion. Own the complete brand.
                 </div>
                 
                 <div class="bundle-cta">
-                    <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">
-                        <i class="fas fa-rocket"></i> Make an Offer
-                    </a>
-                    <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">
-                        <i class="fas fa-envelope"></i> Direct Contact
-                    </a>
+                    <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">Make an Offer</a>
+                    <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">Direct Contact</a>
                 </div>
             </div>
         </div>
@@ -1026,48 +737,42 @@
             <div class="footer-section">
                 <h4>WarpBubble.ai</h4>
                 <p>The Intelligence Layer for Speed & Spacetime</p>
-                <p>Premium domain available for acquisition by visionary founders and enterprises.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-discord"></i></a>
-                </div>
+                <p>A visionary domain for the next frontier of AI and physics engineering.</p>
             </div>
             
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h4>Navigation</h4>
+                <a href="#top">Hero</a>
+                <a href="#concepts">Ecosystem</a>
+                <a href="#bundle">Acquisition</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact & Buy</h4>
                 <a href="mailto:domains@warpbubble.ai">domains@warpbubble.ai</a>
-                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank">Afternic Listing</a>
-                <a href="#">Domain Portfolio</a>
-            </div>
-            
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Disclaimer</a>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank">Purchase via Afternic</a>
             </div>
         </div>
         
         <div class="footer-bottom">
             <p>© 2026 WarpBubble Ecosystem. All rights reserved.</p>
             <p class="footer-disclaimer">
-                This website represents a premium domain for sale. The concepts, technologies, and applications described herein are visionary projections of potential use cases. Acquiring this domain provides branding rights only. WarpBubble.ai is not affiliated with any existing aerospace, automotive, or technology company. All imagery and videos used for illustrative purposes only.
+                This landing page showcases potential applications for the premium domain name 'warpbubble.ai'. Domain acquisition is subject to registrar terms. All visual assets are illustrative placeholders representing futuristic concepts.
             </p>
         </div>
-    </foot>er>
+    </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800
-        });
+        // --- CORE SETUP ---
+        AOS.init({ once: true, offset: 150, duration: 800 });
 
-        // Particle Canvas Animation
+        const copyright = document.querySelector('.copyright');
+        copyright.setAttribute('data-aos', 'fade-up');
+        copyright.setAttribute('data-aos-duration', '1000');
+        copyright.setAttribute('data-aos-delay', '3000');
+
+        // --- PARTICLE/CANVAS ANIMATION (Optimized for dark theme glow) ---
         const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -1085,35 +790,34 @@
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.size = Math.random() * 1.5 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.3;
+                this.speedY = (Math.random() - 0.5) * 0.3;
                 this.color = Math.random() > 0.5 ? 'rgba(0, 255, 255,' : 'rgba(157, 78, 221,';
-                this.alpha = Math.random() * 0.5 + 0.2;
+                this.alpha = Math.random() * 0.3 + 0.1;
             }
 
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
 
-                // Warp effect towards center
+                // Gentle warp/attraction towards center
                 const centerX = canvas.width / 2;
                 const centerY = canvas.height / 2;
                 const dx = centerX - this.x;
                 const dy = centerY - this.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (distance < 300) {
-                    this.x += dx * 0.001;
-                    this.y += dy * 0.001;
-                    this.alpha = Math.min(this.alpha + 0.01, 0.8);
+                if (distance < 600) {
+                    this.x += dx * 0.0005;
+                    this.y += dy * 0.0005;
                 }
 
                 // Wrap around edges
-                if (this.x < 0) this.x = canvas.width;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.y < 0) this.y = canvas.height;
-                if (this.y > canvas.height) this.y = 0;
+                if (this.x < -10) this.x = canvas.width + 10;
+                if (this.x > canvas.width + 10) this.x = -10;
+                if (this.y < -10) this.y = canvas.height + 10;
+                if (this.y > canvas.height + 10) this.y = -10;
             }
 
             draw() {
@@ -1126,21 +830,23 @@
 
         function initParticles() {
             particles = [];
-            const particleCount = Math.min(150, window.innerWidth / 10);
+            const particleCount = Math.min(200, window.innerWidth / 15);
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
         }
 
         function connectParticles() {
+            const maxDist = 100;
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
                     const dy = particles[i].y - particles[j].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < 120) {
-                        const opacity = (1 - distance / 120) * 0.3;
+                    if (distance < maxDist) {
+                        // Cyan line connecting particles
+                        const opacity = (1 - distance / maxDist) * 0.2;
                         ctx.beginPath();
                         ctx.strokeStyle = `rgba(0, 255, 255, ${opacity})`;
                         ctx.lineWidth = 0.5;
@@ -1167,34 +873,67 @@
         initParticles();
         animate();
 
-        // Mouse interaction
+        // Mouse interaction for slight repulsion/attraction
         canvas.addEventListener('mousemove', (e) => {
-            mouse.x = e.x;
-            mouse.y = e.y;
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
             
             particles.forEach(particle => {
                 const dx = mouse.x - particle.x;
                 const dy = mouse.y - particle.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (,distance < 100) {
-                    particle.x -= dx * 0.02;
-                    particle.y -= dy * 0.02;
+                if (distance < 80) {
+                    // Gentle push away
+                    particle.x += dx * 0.015;
+                    particle.y += dy * 0.015;
                 }
             });
         });
 
-        // Video play buttons
-        document.querySelectorAll('.play-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const video = this.parentElement.querySelector('video');
-                if (video.paused) {
-                    video.play();
-                    this.innerHTML = '<i class="fas fa-pause"></i>';
-                } else {
-                    video.pause();
-                    this.innerHTML = '<i class="fas fa-play"></i>';
-                }
+
+        // --- VIDEO INTERACTION LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.concept-card');
+
+            cards.forEach(card => {
+                const playButton = card.querySelector('.overlay-play');
+                const video = card.querySelector('.concept-video');
+                const placeholder = card.querySelector('.static-placeholder');
+
+                // Initial setup for placeholder image (if video fails to load)
+                placeholder.style.display = 'block';
+                video.style.display = 'none';
+
+                // Play button handler
+                playButton.addEventListener('click', () => {
+                    // Stop all other videos
+                    document.querySelectorAll('.concept-video').forEach(v => {
+                        if (v !== video && !v.paused) {
+                            v.pause();
+                            v.currentTime = 0;
+                            v.closest('.concept-card').classList.remove('video-active');
+                        }
+                    });
+
+                    // Toggle current video
+                    if (video.paused) {
+                        video.play().catch(error => console.log("Autoplay was prevented: ", error));
+                        card.classList.add('video-active');
+                        placeholder.style.opacity = 0;
+                    } else {
+                        video.pause();
+                        video.currentTime = 0;
+                        card.classList.remove('video-active');
+                        placeholder.style.opacity = 1;
+                    }
+                });
+
+                // Video ended handler (return to static image)
+                video.addEventListener('ended', () => {
+                    card.classList.remove('video-active');
+                    placeholder.style.opacity = 1;
+                });
             });
         });
 
@@ -1202,20 +941,16 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Adjust scroll position slightly to account for fixed header/overlay elements if necessary, though here we just scroll smoothly.
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
-        });
-
-        // Dynamic glow effect on scroll
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const hero = document.querySelector('.hero-title');
-            if (hero) {
-                const intensity = Math.max(0.5, 1 - scrolled / 500);
-                hero.style.opacity = intensity;
-            }
         });
     </script>
 </body>
