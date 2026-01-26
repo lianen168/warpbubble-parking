@@ -1,32 +1,28 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarpBubble.ai - The Intelligence Layer for Speed & Spacetime | Premium Domain for Sale</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="WarpBubble.ai - The premier domain for AI-driven spacetime, mobility & quantum innovation. Acquire the domain for your futuristic tech venture.">
-    <meta name="keywords" content="warpbubble, ai domain, spacetime ai, quantum mesh, alcubierre metric, hypersonic flight, autonomous vehicles, premium domain">
-    
-    <!-- Google Fonts -->
+    <meta name="description" content="WarpBubble.ai - Premium AI domain for sale. The Intelligence Layer for Speed & Spacetime. Acquire this visionary tech brand for your next breakthrough venture.">
+    <meta name="keywords" content="warpbubble, AI domain, premium domain, tech startup, futuristic brand, warp drive, artificial intelligence">
+    <meta property="og:title" content="WarpBubble.ai - Premium Domain for Sale">
+    <meta property="og:description" content="The Intelligence Layer for Speed & Spacetime. Acquire this visionary tech brand.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         :root {
+            --primary-cyan: #00ffff;
+            --primary-purple: #9d4edd;
             --bg-dark: #000000;
-            --bg-gradient: #0f0f1a;
-            --cyan: #00ffff;
-            --purple: #9d4edd;
-            --white: #ffffff;
-            --gray-light: #a0a0b0;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            --bg-dark-secondary: #0f0f1a;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3);
+            --glow-purple: 0 0 20px rgba(157, 78, 221, 0.5), 0 0 40px rgba(157, 78, 221, 0.3);
         }
 
         * {
@@ -35,588 +31,913 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--bg-dark), var(--bg-gradient));
-            color: var(--white);
-            line-height: 1.6;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 100%);
+            color: var(--text-white);
             overflow-x: hidden;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        h1, h2, h3, h4 {
-            font-family: 'Exo 2', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            text-align: center;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            font-family: 'Exo 2', sans-serif;
-            letter-spacing: 0.5px;
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary-cyan), var(--primary-purple));
+            border-radius: 4px;
         }
 
-        .btn-primary {
-            background: linear-gradient(90deg, var(--cyan), #00b3b3);
-            color: var(--bg-dark);
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--cyan);
-            border: 2px solid var(--cyan);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-3px);
-        }
-
-        section {
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        /* ===== HERO SECTION ===== */
+        /* Hero Section */
         .hero {
-            height: 100vh;
+            position: relative;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            position: relative;
+            padding: 2rem;
             overflow: hidden;
         }
 
-        #particles-canvas {
+        #particle-canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
+            z-index: 0;
+        }
+
+        .warp-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(ellipse at center, 
+                rgba(0, 255, 255, 0.1) 0%, 
+                rgba(157, 78, 221, 0.05) 30%, 
+                transparent 70%);
+            border-radius: 50%;
+            animation: warpPulse 8s ease-in-out infinite;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes warpPulse {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
         }
 
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 900px;
-            z-index: 10;
         }
 
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--cyan), var(--purple));
+        .hero-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            background: linear-gradient(135deg, var(--primary-cyan) 0%, var(--text-white) 50%, var(--primary-purple) 100%);
             -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+            text-shadow: var(--glow-cyan);
+            margin-bottom: 1rem;
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
 
-        .hero h2 {
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 20px rgba(0, 255, 255, 0.5)); }
+            100% { filter: drop-shadow(0 0 40px rgba(157, 78, 221, 0.8)); }
+        }
+
+        .hero-subtitle {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 300;
+            color: var(--primary-cyan);
             margin-bottom: 1.5rem;
-            color: var(--cyan);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-gray);
             max-width: 700px;
-            margin: 0 auto 2.5rem;
-            color: var(--gray-light);
+            margin: 0 auto 3rem;
+            font-weight: 300;
         }
 
-        .cta-buttons {
+        .cta-container {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
-        .copyright {
-            position: absolute;
-            bottom: 1.5rem;
-            right: 2rem;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.4);
+        .cta-btn {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        /* ===== CONCEPTS SECTION ===== */
-        .concepts {
-            background: rgba(10, 10, 20, 0.6);
+        .cta-btn.primary {
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+            color: var(--bg-dark);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .cta-btn.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 60px rgba(157, 78, 221, 0.6);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--primary-cyan);
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: var(--glow-cyan);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            opacity: 0.6;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
         }
 
         .section-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
             text-align: center;
-            font-size: 2.8rem;
             margin-bottom: 4rem;
-            color: var(--cyan);
-            position: relative;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--cyan), var(--purple));
-            border-radius: 2px;
+        /* Concepts Section */
+        .concepts {
+            background: linear-gradient(180deg, var(--bg-dark-secondary) 0%, var(--bg-dark) 100%);
         }
 
         .concepts-grid {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
+            gap: 4rem;
         }
 
         .concept-card {
-            background: rgba(20, 20, 35, 0.5);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(157, 78, 221, 0.15);
-        }
-
-        .concept-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.15);
-            border-color: rgba(157, 78, 221, 0.4);
-        }
-
-        .concept-img {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .concept-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .concept-card:hover .concept-img img {
-            transform: scale(1.05);
-        }
-
-        .concept-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
             padding: 2rem;
-        }
-
-        .concept-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--cyan);
-        }
-
-        .concept-content p {
-            margin-bottom: 1rem;
-            color: var(--gray-light);
-        }
-
-        .potential {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(157, 78, 221, 0.2);
-            font-weight: 500;
-            color: var(--cyan);
-        }
-
-        /* ===== BUNDLE SECTION ===== */
-        .bundle {
-            background: linear-gradient(135deg, rgba(20, 10, 40, 0.8), rgba(10, 5, 30, 0.9));
-            text-align: center;
+            background: linear-gradient(135deg, rgba(15, 15, 26, 0.8), rgba(0, 0, 0, 0.9));
+            border: 1px solid rgba(0, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .bundle::before {
+        .concept-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(157, 78, 221, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(0, 255, 255, 0.1) 0%, transparent 40%);
-            z-index: -1;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .bundle h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, var(--cyan), var(--purple));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .concept-card:hover::before {
+            opacity: 1;
         }
 
-        .bundle-price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--cyan);
-            margin: 2rem 0;
-            text-shadow: 0 0 15px rgba(0,255,255,0.5);
+        .concept-card:hover {
+            border-color: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.1);
+            transform: translateY(-5px);
         }
 
-        .bundle-features {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 2.5rem 0;
-            flex-wrap: wrap;
+        .concept-card:nth-child(even) {
+            direction: rtl;
         }
 
-        .bundle-item {
-            background: rgba(30, 30, 50, 0.4);
-            padding: 1.2rem 2rem;
+        .concept-card:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .concept-image {
+            position: relative;
             border-radius: 15px;
-            border: 1px solid rgba(157, 78, 221, 0.3);
+            overflow: hidden;
+            aspect-ratio: 16/10;
         }
 
-        .bundle-item span {
-            font-size: 1.1rem;
-            color: var(--white);
+        .concept-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .bundle-item .price {
-            font-size: 1.4rem;
+        .concept-card:hover .concept-image img {
+            transform: scale(1.05);
+        }
+
+        .concept-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(157, 78, 221, 0.2));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .concept-card:hover .concept-image::after {
+            opacity: 1;
+        }
+
+        .concept-content h3 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--cyan);
+            color: var(--primary-cyan);
+            margin-bottom: 0.5rem;
         }
 
-        /* ===== FOOTER ===== */
-        footer {
-            background: rgba(5, 5, 15, 0.9);
-            padding: 3rem 0 2rem;
+        .concept-content .concept-subtitle {
+            font-size: 1rem;
+            color: var(--primary-purple);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        .concept-content p {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .concept-content .potential {
+            padding: 1rem;
+            background: rgba(157, 78, 221, 0.1);
+            border-left: 3px solid var(--primary-purple);
+            border-radius: 0 10px 10px 0;
+            margin-top: 1.5rem;
+        }
+
+        .concept-content .potential strong {
+            color: var(--primary-purple);
+        }
+
+        /* Bundle Section */
+        .bundle {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-secondary) 50%, var(--bg-dark) 100%);
             text-align: center;
-            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            position: relative;
         }
 
-        .footer-links {
+        .bundle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(157, 78, 221, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+
+        .bundle-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bundle-card {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1), rgba(0, 255, 255, 0.05));
+            border: 2px solid rgba(157, 78, 221, 0.3);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bundle-card::before {
+            content: 'EXCLUSIVE';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+            color: var(--bg-dark);
+            padding: 0.5rem 3rem;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            transform: rotate(45deg);
+            letter-spacing: 0.1em;
+        }
+
+        .bundle-title {
+            font-family: 'Exo 2', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        .bundle-items {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
-        .footer-links a {
-            color: var(--cyan);
+        .bundle-item {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .bundle-item:hover {
+            border-color: var(--primary-cyan);
+            box-shadow: var(--glow-cyan);
+        }
+
+        .bundle-item .domain {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-cyan);
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-item .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .bundle-total {
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .bundle-total .label {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .bundle-total .total-price {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bundle-total .savings {
+            font-size: 1rem;
+            color: #00ff88;
+            margin-top: 0.5rem;
+        }
+
+        .bundle-scarcity {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 100, 100, 0.1);
+            border: 1px solid rgba(255, 100, 100, 0.3);
+            border-radius: 10px;
+            color: #ff8888;
+            font-weight: 500;
+        }
+
+        .bundle-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1.2rem;
+            color: var(--primary-cyan);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-gray);
             text-decoration: none;
-            transition: var(--transition);
+            display: block;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--purple);
-            text-shadow: 0 0 10px rgba(157,78,221,0.7);
+        .footer-section a:hover {
+            color: var(--primary-cyan);
         }
 
-        .disclaimer {
-            font-size: 0.85rem;
-            color: rgba(160,160,176,0.7);
-            max-width: 700px;
-            margin: 1.5rem auto 0;
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 900px) {
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
+        .footer-bottom p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .footer-disclaimer {
+            max-width: 800px;
+            margin: 1rem auto 0;
+            font-size: 0.8rem;
+            color: rgba(160, 160, 160, 0.6);
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .concept-card {
+                grid-template-columns: 1fr;
             }
-            
-            .bundle-features {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
+
+            .concept-card:nth-child(even) {
+                direction: ltr;
+            }
+
+            .warp-overlay {
+                width: 400px;
+                height: 400px;
             }
         }
 
         @media (max-width: 600px) {
+            .hero {
+                padding: 1rem;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .cta-btn {
+                width: 100%;
+            }
+
+            .copyright {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                margin-top: 3rem;
+                text-align: center;
+            }
+
+            .bundle-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .bundle-card::before {
+                display: none;
+            }
+
             section {
-                padding: 4rem 0;
+                padding: 4rem 1rem;
             }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.6rem;
-            }
+        }
+
+        /* Floating Elements */
+        .float-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(157, 78, 221, 0.1));
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(90deg); }
+            50% { transform: translateY(0) rotate(180deg); }
+            75% { transform: translateY(30px) rotate(270deg); }
         }
     </style>
 </head>
 <body>
-    <!-- ===== HERO SECTION ===== -->
+    <!-- Hero Section -->
     <section class="hero">
-        <canvas id="particles-canvas"></canvas>
-        <div class="hero-content">
-            <h1>WarpBubble.ai</h1>
-            <h2>The Intelligence Layer for Speed & Spacetime</h2>
-            <p>A unified framework for intelligent bubbles across physics, mobility, and beyond.</p>
-            <div class="cta-buttons">
-                <a href="https://www.afternic.com/forsale/warpbubble.ai" target="_blank" class="btn btn-primary">Acquire the Domain</a>
-                <a href="mailto:offers@warpbubble.ai" class="btn btn-secondary">Contact for Offers</a>
+        <canvas id="particle-canvas"></canvas>
+        <div class="warp-overlay"></div>
+        
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <h1 class="hero-title">WarpBubble.ai</h1>
+            <p class="hero-subtitle">The Intelligence Layer for Speed & Spacetime</p>
+            <p class="hero-tagline">A unified framework for intelligent bubbles across physics, mobility, and beyond.</p>
+            
+            <div class="cta-container">
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">Acquire the Domain</a>
+                <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">Contact for Offers</a>
             </div>
-            <div class="copyright">© 2026 WarpBubble Ecosystem</div>
+        </div>
+        
+        <p class="copyright">© 2026 WarpBubble Ecosystem</p>
+    </section>
+
+    <!-- Concepts Section -->
+    <section class="concepts">
+        <h2 class="section-title" data-aos="fade-up">The WarpBubble Ecosystem</h2>
+        
+        <div class="concepts-grid">
+            <!-- Concept 1: Warp Physics -->
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="concept-image">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&q=80" alt="Warp Physics Visualization">
+                </div>
+                <div class="concept-content">
+                    <h3>Warp Physics</h3>
+                    <p class="concept-subtitle">Alcubierre Metric AI — Simulating negative energy densities for theoretical faster-than-light propulsion bubbles.</p>
+                    <p>Leveraging neural networks to model exotic matter requirements and optimize Alcubierre drive metrics for future interstellar travel. Our AI systems analyze spacetime curvature patterns and energy distribution models that were previously computationally intractable.</p>
+                    <p>By combining quantum field theory simulations with advanced machine learning, WarpBubble.ai could pioneer the tools needed to turn theoretical warp drives into engineering blueprints.</p>
+                    <div class="potential">
+                        <strong>Potential:</strong> Breakthrough simulation tools for next-gen propulsion research, enabling humanity's first steps toward interstellar exploration.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 2: FSD Safety Bubble -->
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="150">
+                <div class="concept-image">
+                    <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800&q=80" alt="Autonomous Vehicle Safety">
+                </div>
+                <div class="concept-content">
+                    <h3>FSD "Safety Bubble"</h3>
+                    <p class="concept-subtitle">Predictive safety analysis for autonomous vehicle fleets.</p>
+                    <p>Extending Tesla-style vision-only 360° safety buffers to Robotaxi networks, enabling zero-collision, warp-like smooth traffic flow in urban environments. Each vehicle maintains an intelligent protective envelope that dynamically adjusts based on speed, traffic density, and environmental conditions.</p>
+                    <p>Our AI orchestrates thousands of overlapping safety bubbles, ensuring seamless coordination between autonomous vehicles while maximizing throughput and minimizing risk.</p>
+                    <div class="potential">
+                        <strong>Potential:</strong> Revolutionizing ground mobility with seamless, predictive coordination — eliminating traffic fatalities while increasing urban transportation efficiency by 10x.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 3: Hypersonic Flight -->
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="concept-image">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" alt="Hypersonic Aircraft">
+                </div>
+                <div class="concept-content">
+                    <h3>Hypersonic Flight</h3>
+                    <p class="concept-subtitle">Shockwave Bubble — Supercavitation and silent supersonic transport.</p>
+                    <p>Intelligent plasma/shear layer control to eliminate sonic booms, creating seamless high-speed atmospheric travel. Our AI manages dynamic flow control surfaces and plasma actuators in real-time, creating a protective bubble of controlled air around hypersonic vehicles.</p>
+                    <p>This technology enables aircraft to slip through the atmosphere at unprecedented speeds without the destructive shockwaves that have historically limited supersonic flight over populated areas.</p>
+                    <div class="potential">
+                        <strong>Potential:</strong> Quiet, efficient global travel at Mach 5+ — New York to Tokyo in 2 hours, London to Sydney in 3, with zero sonic disturbance.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 4: Orbital Logistics -->
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="250">
+                <div class="concept-image">
+                    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=800&q=80" alt="Orbital Infrastructure">
+                </div>
+                <div class="concept-content">
+                    <h3>Orbital Logistics</h3>
+                    <p class="concept-subtitle">Territorial Bubbles + Dyson Swarm Coordination — AI-orchestrated protective domains around orbital assets.</p>
+                    <p>Managing complex multi-body orbital mechanics for satellite constellations, space stations, and eventually megastructure networks. Each orbital asset maintains an intelligent territorial bubble that coordinates with neighbors, avoiding collisions while optimizing coverage and energy collection.</p>
+                    <p>Scaling from current LEO constellations to future Dyson swarm components, our AI provides the coordination layer for humanity's expansion into space.</p>
+                    <div class="potential">
+                        <strong>Potential:</strong> Foundation for space-based infrastructure dominance — from satellite internet to solar power satellites to full-scale Dyson swarm construction.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 5: Quantum Mesh -->
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="concept-image">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80" alt="Quantum Network">
+                </div>
+                <div class="concept-content">
+                    <h3>Quantum Mesh</h3>
+                    <p class="concept-subtitle">Entanglement Bubbles — Instantaneous communication across distances.</p>
+                    <p>Harnessing quantum entanglement for latency-free global and interstellar data transfer. Our AI manages networks of entangled particle pairs, creating "bubbles" of quantum-correlated nodes that can share information instantaneously regardless of physical separation.</p>
+                    <p>While not violating causality for information transfer, these entanglement bubbles enable unprecedented synchronization and coordination for distributed AI systems, financial networks, and deep space communications.</p>
+                    <div class="potential">
+                        <strong>Potential:</strong> Zero-latency networks for AI and blockchain — enabling truly decentralized systems with instantaneous global consensus.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 6: Exotic Hulls -->
+            <div class="concept-card" data-aos="fade-up" data-aos-delay="350">
+                <div class="concept-image">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80" alt="Metamaterial Technology">
+                </div>
+                <div class="concept-content">
+                    <h3>Exotic Hulls</h3>
+                    <p class="concept-subtitle">Metamaterial Casings — Adaptive defensive/stealth envelopes.</p>
+                    <p>Programmable matter shells that dynamically reshape for optimal protection and performance. Our AI controls metamaterial surfaces at the molecular level, enabling real-time adaptation to threats, environmental conditions, and mission requirements.</p>
+                    <p>From radar-absorbing stealth coatings to impact-resistant defensive layers to thermally adaptive heat shields, exotic hulls represent the ultimate in protective bubble technology.</p>
+                    <div class="potential">
+                        <strong>Potential:</strong> Next-gen aerospace and defense materials — vehicles that can morph, heal, and adapt to any environment or threat profile.
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ===== CONCEPTS SECTION ===== -->
-    <section class="concepts" data-aos="fade-up">
-        <div class="container">
-            <h2 class="section-title">Intelligent Bubble Concepts</h2>
-            <div class="concepts-grid">
+    <!-- Bundle Section -->
+    <section class="bundle">
+        <div class="bundle-container" data-aos="zoom-in" data-aos-duration="800">
+            <div class="bundle-card">
+                <h2 class="bundle-title">Singularity Bundle</h2>
+                <p class="bundle-subtitle">Secure Ecosystem Dominance</p>
                 
-                <!-- Concept 1 -->
-                <div class="concept-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="concept-img">
-                        <img src="https://source.unsplash.com/random/1600x900/?space,wormhole,physics" alt="Warp Physics">
+                <div class="bundle-items">
+                    <div class="bundle-item">
+                        <p class="domain">warpbubble.ai</p>
+                        <p class="price">$42,000</p>
                     </div>
-                    <div class="concept-content">
-                        <h3>Warp Physics → Alcubierre Metric AI</h3>
-                        <p>Leveraging neural networks to model exotic matter requirements and optimize Alcubierre drive metrics for future interstellar travel. Our AI simulates negative energy densities with unprecedented accuracy, predicting stability thresholds and energy requirements for theoretical faster-than-light propulsion bubbles.</p>
-                        <p>The system integrates quantum field theory with machine learning to identify viable configurations that traditional computation couldn't resolve.</p>
-                        <div class="potential">Potential: Breakthrough simulation tools for next-gen propulsion research.</div>
+                    <div class="bundle-item">
+                        <p class="domain">warpbubble.space</p>
+                        <p class="price">$12,000</p>
                     </div>
                 </div>
                 
-                <!-- Concept 2 -->
-                <div class="concept-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="concept-img">
-                        <img src="https://source.unsplash.com/random/1600x900/?autonomous,car,traffic" alt="FSD Safety Bubble">
-                    </div>
-                    <div class="concept-content">
-                        <h3>FSD "Safety Bubble"</h3>
-                        <p>Extending Tesla-style vision-only 360° safety buffers to Robotaxi networks, enabling zero-collision, warp-like smooth traffic flow in urban environments. Our predictive AI creates dynamic safety envelopes around each vehicle, anticipating pedestrian movement, cross-traffic, and infrastructure changes in real-time.</p>
-                        <p>The system coordinates entire fleets through a shared intelligence layer, eliminating traffic lights and stop signs while maintaining perfect safety.</p>
-                        <div class="potential">Potential: Revolutionizing ground mobility with seamless, predictive coordination.</div>
-                    </div>
+                <div class="bundle-total">
+                    <p class="label">Bundle Price</p>
+                    <p class="total-price">$51,000</p>
+                    <p class="savings">You save $3,000</p>
                 </div>
                 
-                <!-- Concept 3 -->
-                <div class="concept-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="concept-img">
-                        <img src="https://source.unsplash.com/random/1600x900/?supersonic,jet,flight" alt="Hypersonic Flight">
-                    </div>
-                    <div class="concept-content">
-                        <h3>Hypersonic Flight → Shockwave Bubble</h3>
-                        <p>Intelligent plasma/shear layer control to eliminate sonic booms, creating seamless high-speed atmospheric travel. Our AI dynamically manipulates the aircraft's boundary layer, dissipating shockwaves before they form, enabling quiet Mach 5+ flight over land.</p>
-                        <p>Adaptive thermal management prevents extreme surface temperatures while maintaining aerodynamic efficiency across all speeds.</p>
-                        <div class="potential">Potential: Quiet, efficient global travel at Mach 5+.</div>
-                    </div>
+                <div class="bundle-scarcity">
+                    🚀 <strong>Premium .ai</strong> for AI leadership + <strong>.space</strong> for cosmic expansion<br>
+                    Own the complete WarpBubble brand across Earth and the stars.
                 </div>
                 
-                <!-- Concept 4 -->
-                <div class="concept-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="concept-img">
-                        <img src="https://source.unsplash.com/random/1600x900/?satellite,space,orbit" alt="Orbital Logistics">
-                    </div>
-                    <div class="concept-content">
-                        <h3>Orbital Logistics → Territorial Bubbles + Dyson Swarm Coordination</h3>
-                        <p>AI-orchestrated protective domains around orbital assets, scaling to megastructure energy collection networks and coordinated satellite swarms. The system autonomously manages collision avoidance, energy distribution, and construction sequencing for space-based infrastructure.</p>
-                        <p>Real-time optimization ensures maximum resource utilization while maintaining planetary defense protocols.</p>
-                        <div class="potential">Potential: Foundation for space-based infrastructure dominance.</div>
-                    </div>
+                <div class="bundle-cta">
+                    <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="cta-btn primary">Make an Offer</a>
+                    <a href="mailto:domains@warpbubble.ai" class="cta-btn secondary">Direct Contact</a>
                 </div>
-                
-                <!-- Concept 5 -->
-                <div class="concept-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="concept-img">
-                        <img src="https://source.unsplash.com/random/1600x900/?quantum,entanglement,network" alt="Quantum Mesh">
-                    </div>
-                    <div class="concept-content">
-                        <h3>Quantum Mesh → Entanglement Bubbles</h3>
-                        <p>Harnessing quantum entanglement for latency-free global and interstellar data transfer. Our AI manages quantum state stability across vast distances, creating "bubbles" of instantaneous communication that persist even when classical links fail.</p>
-                        <p>Integrated error correction maintains coherence through cosmic radiation and gravitational interference.</p>
-                        <div class="potential">Potential: Zero-latency networks for AI and blockchain.</div>
-                    </div>
-                </div>
-                
-                <!-- Concept 6 -->
-                <div class="concept-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="concept-img">
-                        <img src="https://source.unsplash.com/random/1600x900/?hologram,armor,technology" alt="Exotic Hulls">
-                    </div>
-                    <div class="concept-content">
-                        <h3>Exotic Hulls → Metamaterial Casings</h3>
-                        <p>Programmable matter shells that dynamically reshape for optimal protection and performance. The hull adapts microstructure in milliseconds—changing from radar-absorbing stealth to impact-resistant armor, or even generating holographic displays.</p>
-                        <p>Self-repair mechanisms utilize surrounding materials to regenerate damaged sections autonomously.</p>
-                        <div class="potential">Potential: Next-gen aerospace and defense materials.</div>
-                    </div>
-                </div>
-                
             </div>
         </div>
     </section>
 
-    <!-- ===== BUNDLE SECTION ===== -->
-    <section class="bundle" data-aos="zoom-in">
-        <div class="container">
-            <h2>Singularity Bundle — Secure Ecosystem Dominance</h2>
-            <p>Acquire the complete intellectual property portfolio for the WarpBubble ecosystem</p>
-            
-            <div class="bundle-features">
-                <div class="bundle-item">
-                    <span>warpbubble.ai</span>
-                    <div class="price">$42,000</div>
-                </div>
-                <div class="bundle-item">
-                    <span>warpbubble.space</span>
-                    <div class="price">$12,000</div>
-                </div>
-            </div>
-            
-            <div class="bundle-price">$51,000</div>
-            
-            <p>Premium .ai for AI leadership + .space for cosmic expansion</p>
-            
-            <a href="https://www.afternic.com/forsale/warpbubble.ai" target="_blank" class="btn btn-primary">Make an Offer</a>
-            <a href="mailto:offers@warpbubble.ai" class="btn btn-secondary" style="margin-top: 1rem;">Negotiate Bundle Deal</a>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="https://www.afternic.com/forsale/warpbubble.ai" target="_blank">Domain Listing</a>
-                <a href="mailto:offers@warpbubble.ai">Contact</a>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>WarpBubble.ai</h4>
+                <p>The Intelligence Layer for Speed & Spacetime</p>
+                <p>Premium domain available for acquisition by visionary founders and enterprises.</p>
             </div>
-            <p class="disclaimer">
-                WarpBubble.ai is a premium domain name for sale. This website conceptualizes potential applications. 
-                All conceptual designs, technologies, and brand elements are illustrative only. 
-                © 2026 WarpBubble Ecosystem. All rights reserved.
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <a href="mailto:domains@warpbubble.ai">domains@warpbubble.ai</a>
+                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank">Afternic Listing</a>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Domain Portfolio</h4>
+                <p>warpbubble.ai — $42,000</p>
+                <p>warpbubble.space — $12,000</p>
+                <p>Bundle Available — $51,000</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 WarpBubble Ecosystem. All rights reserved.</p>
+            <p class="footer-disclaimer">
+                This website represents a premium domain for sale. The concepts, technologies, and applications described herein are visionary projections of potential use cases. Acquiring this domain provides branding rights only. WarpBubble.ai is not affiliated with any existing aerospace, automotive, or technology company. All imagery used for illustrative purposes only.
             </p>
         </div>
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 1000,
             once: true,
-            easing: 'ease-in-out-cubic'
+            offset: 100,
+            duration: 800
         });
 
-        // Particle Background
-        const canvas = document.getElementById('particles-canvas');
+        // Particle Canvas Animation
+        const canvas = document.getElementById('particle-canvas');
         const ctx = canvas.getContext('2d');
-        
-        // Set canvas to full screen
+        let particles = [];
+        let mouse = { x: null, y: null };
+
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        resizeCanvas();
+
         window.addEventListener('resize', resizeCanvas);
-        
-        // Particle class
+        resizeCanvas();
+
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.2;
-                this.speedY = (Math.random() - 0.5) * 0.2;
-                this.color = `rgba(${Math.floor(Math.random()*155+100)}, ${Math.floor(Math.random()*155)}, ${Math.floor(Math.random()*255)}, ${Math.random() * 0.5 + 0.1})`;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.color = Math.random() > 0.5 ? 'rgba(0, 255, 255,' : 'rgba(157, 78, 221,';
+                this.alpha = Math.random() * 0.5 + 0.2;
             }
-            
+
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
+
+                // Warp effect towards center
+                const centerX = canvas.width / 2;
+                const centerY = canvas.height / 2;
+                const dx = centerX - this.x;
+                const dy = centerY - this.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
                 
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                if (distance < 300) {
+                    this.x += dx * 0.001;
+                    this.y += dy * 0.001;
+                    this.alpha = Math.min(this.alpha + 0.01, 0.8);
+                }
+
+                // Wrap around edges
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) this.y = canvas.height;
+                if (this.y > canvas.height) this.y = 0;
             }
-            
+
             draw() {
-                ctx.fillStyle = this.color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + this.alpha + ')';
                 ctx.fill();
             }
         }
-        
-        // Create particles
-        const particles = [];
-        const particleCount = 150;
-        
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
+
+        function initParticles() {
+            particles = [];
+            const particleCount = Math.min(150, window.innerWidth / 10);
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
         }
-        
-        // Warp distortion effect
-        function drawWarpEffect() {
-            const centerX = canvas.width / 2;
-            const centerY = canvas.height / 2;
-            const maxRadius = Math.min(canvas.width, canvas.height) * 0.6;
-            
-            const gradient = ctx.createRadialGradient(
-                centerX, centerY, 0,
-                centerX, centerY, maxRadius
-            );
-            
-            gradient.addColorStop(0, 'rgba(157, 78, 221, 0.1)');
-            gradient.addColorStop(0.5, 'rgba(0, 255, 255, 0.05)');
-            gradient.addColorStop(1, 'transparent');
-            
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, maxRadius, 0, Math.PI * 2);
-            ctx.fill();
+
+        function connectParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        const opacity = (1 - distance / 120) * 0.3;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 255, 255, ${opacity})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
         }
-        
-        // Animation loop
+
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
-            // Draw warp distortion
-            drawWarpEffect();
-            
-            // Update and draw particles
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            connectParticles();
             requestAnimationFrame(animate);
         }
-        
+
+        initParticles();
         animate();
-        
-        // Smooth scrolling for anchor links
+
+        // Mouse interaction
+        canvas.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+            
+            particles.forEach(particle => {
+                const dx = mouse.x - particle.x;
+                const dy = mouse.y - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < 100) {
+                    particle.x -= dx * 0.02;
+                    particle.y -= dy * 0.02;
+                }
+            });
+        });
+
+        // Smooth scroll for better UX
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -625,7 +946,16 @@
                 });
             });
         });
+
+        // Dynamic glow effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero-title');
+            if (hero) {
+                const intensity = Math.max(0.5, 1 - scrolled / 500);
+                hero.style.opacity = intensity;
+            }
+        });
     </script>
 </body>
 </html>
-```
