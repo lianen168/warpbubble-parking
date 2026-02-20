@@ -4,1185 +4,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarpBubble - The Intelligence Layer for Speed & Spacetime</title>
-    <meta name="description" content="Premium domains WarpBubble.ai ($42,000) and WarpBubble.space ($12,000) for sale - The Intelligence Layer for Speed & Spacetime">
+
+    <!-- SEO Optimization -->
+    <meta name="description" content="Premium domains WarpBubble.ai ($42,000) and WarpBubble.space ($12,000) for sale. The definitive brand for the intelligence layer governing speed, spacetime, and FTL technology.">
+    <meta name="keywords" content="WarpBubble, WarpBubble.ai, WarpBubble.space, Alcubierre Drive, FTL, AI, Spacetime, Hypersonic, Quantum Mesh, FSD, Orbital Logistics, premium domain">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.warpbubble.ai/"> <!-- Replace with your final URL -->
+    <meta property="og:title" content="WarpBubble - The Intelligence Layer for Speed & Spacetime">
+    <meta property="og:description" content="A unified framework for intelligent bubbles across physics, mobility, and beyond. Premium domain assets for visionary founders.">
+    <meta property="og:image" content="https://www.warpbubble.ai/social-preview.jpg"> <!-- Replace with a URL to a preview image -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.warpbubble.ai/"> <!-- Replace with your final URL -->
+    <meta name="twitter:title" content="WarpBubble - The Intelligence Layer for Speed & Spacetime">
+    <meta name="twitter:description" content="A unified framework for intelligent bubbles across physics, mobility, and beyond. Premium domain assets for visionary founders.">
+    <meta name="twitter:image" content="https://www.warpbubble.ai/social-preview.jpg"> <!-- Replace with a URL to a preview image -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@300;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-void: #020205;
-            --hud-bg: rgba(15, 20, 30, 0.6);
-            --border-color: rgba(255, 255, 255, 0.1);
-            --cyan-warp: #00f3ff;
-            --mag-bubble: #bc13fe;
-            --safe-amber: #ffaa00;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
+            --bg-void: #020205; --hud-bg: rgba(15, 20, 30, 0.6); --border-color: rgba(255, 255, 255, 0.1);
+            --cyan-warp: #00f3ff; --mag-bubble: #bc13fe; --safe-amber: #ffaa00;
+            --text-white: #ffffff; --text-gray: #a0a0a0;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--bg-void);
-            color: var(--text-white);
-            font-family: 'Rajdhani', sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        /* Custom Scrollbar */
+        body { background-color: var(--bg-void); color: var(--text-white); font-family: 'Rajdhani', sans-serif; min-height: 100vh; overflow-x: hidden; display: flex; flex-direction: column; position: relative; }
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-void); }
         ::-webkit-scrollbar-thumb { background: var(--cyan-warp); border-radius: 3px; }
-
-        /* Dual Canvas Layers */
-        #hyperspace-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -3;
-        }
-
-        #particle-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -2;
-            opacity: 0.6;
-        }
-
-        .vignette {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: radial-gradient(circle, transparent 40%, var(--bg-void) 120%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            flex-grow: 1;
-            position: relative;
-            z-index: 10;
-        }
-
-        /* Hero Section */
-        header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .logo-lockup {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .text-warp {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            font-style: italic;
-            color: transparent;
-            background: linear-gradient(180deg, #fff 0%, #a0a0a0 45%, #fff 50%, #555 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.3));
-            transform: skewX(-10deg);
-            position: relative;
-        }
-
-        .text-warp::after {
-            content: "WARP";
-            position: absolute;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0,243,255,0.8), transparent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transform: translateX(-10px);
-            opacity: 0.5;
-            filter: blur(4px);
-            z-index: -1;
-        }
-
-        /* Ship Viewport - Moved more to the right */
-        .ship-viewport {
-            width: clamp(50px, 6vw, 80px);
-            height: clamp(50px, 6vw, 80px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-left: 25px; /* Increased from 10px to 25px */
-            margin-right: 15px;
-        }
-
-        .warp-field-emitter {
-            position: absolute;
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 0 15px var(--cyan-warp), inset 0 0 10px var(--mag-bubble);
-            animation: field-breath 3s ease-in-out infinite alternate;
-        }
-
-        .starship {
-            width: 30%;
-            height: 40%;
-            background: #fff;
-            clip-path: polygon(50% 0%, 0% 100%, 50% 85%, 100% 100%);
-            transform: rotate(90deg);
-            filter: drop-shadow(0 0 8px #fff);
-            z-index: 5;
-        }
-
-        @keyframes field-breath {
-            0% { transform: scale(0.9); box-shadow: 0 0 15px var(--cyan-warp), inset 0 0 5px var(--mag-bubble); }
-            50% { transform: scale(1.1); box-shadow: 0 0 30px var(--mag-bubble), inset 0 0 15px var(--cyan-warp); }
-            100% { transform: scale(0.9); box-shadow: 0 0 15px var(--cyan-warp), inset 0 0 5px var(--mag-bubble); }
-        }
-
-        .text-bubble {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            color: #fff;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px var(--mag-bubble), 0 0 20px var(--mag-bubble);
-            opacity: 0.9;
-            letter-spacing: 2px;
-        }
-
-        .tagline {
-            margin-top: 2rem;
-            color: var(--cyan-warp);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: clamp(0.8rem, 2vw, 1.1rem);
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1.5rem;
-            max-width: 700px;
-        }
-
-        .hero-desc {
-            color: var(--text-gray);
-            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-            max-width: 600px;
-            margin: 1.5rem auto 2.5rem;
-            line-height: 1.7;
-        }
-
-        .cta-container {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: all 0.4s ease;
-        }
-
-        .cta-btn.primary {
-            background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble));
-            color: var(--bg-void);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
-        }
-
-        .cta-btn.primary:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 0 40px rgba(0, 243, 255, 0.8), 0 0 60px rgba(188, 19, 254, 0.5);
-        }
-
-        .cta-btn.secondary {
-            background: transparent;
-            color: var(--text-white);
-            border: 2px solid var(--cyan-warp);
-        }
-
-        .cta-btn.secondary:hover {
-            background: rgba(0, 243, 255, 0.15);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
-            transform: translateY(-5px);
-        }
-
-        /* Section Title */
-        .section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            font-weight: 700;
-            text-align: center;
-            margin: 6rem 0 4rem;
-            background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Concept Cards with Videos */
-        .sector-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 5rem;
-        }
-
-        .sector-card {
-            background: var(--hud-bg);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 12px;
-            backdrop-filter: blur(8px);
-            transition: all 0.4s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sector-card:hover {
-            border-color: var(--cyan-warp);
-            transform: translateY(-8px);
-            background: rgba(0, 243, 255, 0.05);
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
-        }
-
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 0.8rem;
-        }
-
-        .card-title {
-            font-family: 'Orbitron';
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        .card-desc {
-            font-size: 0.95rem;
-            color: #b0c4de;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        /* Video Container - Fixed */
-        .video-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16/9;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, rgba(0,243,255,0.1), rgba(188,19,254,0.1));
-            cursor: pointer;
-        }
-
-        .video-poster {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-element {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-element.playing {
-            opacity: 1;
-        }
-
-        .play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid var(--cyan-warp);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .play-btn:hover {
-            background: var(--cyan-warp);
-            box-shadow: 0 0 30px var(--cyan-warp);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .play-btn::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 22px solid #fff;
-            border-top: 14px solid transparent;
-            border-bottom: 14px solid transparent;
-            margin-left: 5px;
-        }
-
-        .play-btn.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .pause-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 5;
-            display: none;
-        }
-
-        .video-container.playing .pause-overlay {
-            display: block;
-        }
-
-        /* Micro Animations */
-        .anim-box {
-            width: 40px;
-            height: 40px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .metric-grid {
-            width: 100%;
-            height: 100%;
-            border: 1px solid var(--cyan-warp);
-            border-radius: 50%;
-            animation: distort 2s infinite ease-in-out;
-        }
-
-        @keyframes distort {
-            0% { transform: scale(0.8) skewX(0deg); }
-            50% { transform: scale(1) skewX(20deg); }
-            100% { transform: scale(0.8) skewX(0deg); }
-        }
-
-        .orbit-path {
-            width: 30px;
-            height: 30px;
-            border: 1px dashed #fff;
-            border-radius: 50%;
-            animation: spin 4s linear infinite;
-            position: relative;
-        }
-
-        .sat {
-            width: 6px;
-            height: 6px;
-            background: var(--mag-bubble);
-            border-radius: 50%;
-            position: absolute;
-            top: -3px;
-            left: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 8px var(--mag-bubble);
-        }
-
+        #hyperspace-canvas, #particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -3; }
+        #particle-canvas { z-index: -2; opacity: 0.6; }
+        .vignette { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 40%, var(--bg-void) 120%); z-index: -1; pointer-events: none; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 3rem 1.5rem; flex-grow: 1; position: relative; z-index: 10; }
+        header { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; padding: 2rem; }
+        .logo-lockup { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+        .text-warp { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 8vw, 6rem); font-style: italic; color: transparent; background: linear-gradient(180deg, #fff 0%, #a0a0a0 45%, #fff 50%, #555 100%); -webkit-background-clip: text; background-clip: text; filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.3)); transform: skewX(-10deg); position: relative; }
+        .text-warp::after { content: "WARP"; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(0,243,255,0.8), transparent); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; transform: translateX(-10px); opacity: 0.5; filter: blur(4px); z-index: -1; }
+        .ship-viewport { width: clamp(50px, 6vw, 80px); height: clamp(50px, 6vw, 80px); display: flex; align-items: center; justify-content: center; position: relative; margin-left: 25px; margin-right: 15px; }
+        .warp-field-emitter { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.6); box-shadow: 0 0 15px var(--cyan-warp), inset 0 0 10px var(--mag-bubble); animation: field-breath 3s ease-in-out infinite alternate; }
+        .starship { width: 30%; height: 40%; background: #fff; clip-path: polygon(50% 0%, 0% 100%, 50% 85%, 100% 100%); transform: rotate(90deg); filter: drop-shadow(0 0 8px #fff); z-index: 5; }
+        @keyframes field-breath { 0% { transform: scale(0.9); box-shadow: 0 0 15px var(--cyan-warp), inset 0 0 5px var(--mag-bubble); } 50% { transform: scale(1.1); box-shadow: 0 0 30px var(--mag-bubble), inset 0 0 15px var(--cyan-warp); } 100% { transform: scale(0.9); box-shadow: 0 0 15px var(--cyan-warp), inset 0 0 5px var(--mag-bubble); } }
+        .text-bubble { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: clamp(2.5rem, 8vw, 6rem); color: #fff; text-transform: uppercase; text-shadow: 0 0 10px var(--mag-bubble), 0 0 20px var(--mag-bubble); opacity: 0.9; letter-spacing: 2px; }
+        .tagline { margin-top: 2rem; color: var(--cyan-warp); letter-spacing: 4px; text-transform: uppercase; font-size: clamp(0.8rem, 2vw, 1.1rem); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; max-width: 700px; }
+        .hero-desc { color: var(--text-gray); font-size: clamp(0.9rem, 1.5vw, 1.1rem); max-width: 600px; margin: 1.5rem auto 2.5rem; line-height: 1.7; }
+        .cta-container { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .cta-btn { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; font-weight: 600; padding: 1rem 2rem; border: none; border-radius: 50px; cursor: pointer; text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.4s ease; }
+        .cta-btn.primary { background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble)); color: var(--bg-void); box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
+        .cta-btn.primary:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 0 40px rgba(0, 243, 255, 0.8), 0 0 60px rgba(188, 19, 254, 0.5); }
+        .cta-btn.secondary { background: transparent; color: var(--text-white); border: 2px solid var(--cyan-warp); }
+        .cta-btn.secondary:hover { background: rgba(0, 243, 255, 0.15); box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); transform: translateY(-5px); }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; text-align: center; margin: 6rem 0 4rem; background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .sector-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 5rem; }
+        .sector-card { background: var(--hud-bg); border: 1px solid var(--border-color); padding: 1.5rem; border-radius: 12px; backdrop-filter: blur(8px); transition: all 0.4s ease; display: flex; flex-direction: column; }
+        .sector-card:hover { border-color: var(--cyan-warp); transform: translateY(-8px); background: rgba(0, 243, 255, 0.05); box-shadow: 0 0 30px rgba(0, 243, 255, 0.2); }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.8rem; }
+        .card-title { font-family: 'Orbitron'; font-size: 1.1rem; color: #fff; }
+        .card-desc { font-size: 0.95rem; color: #b0c4de; line-height: 1.6; flex-grow: 1; }
+        .video-container { position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; margin-bottom: 1rem; background: linear-gradient(135deg, rgba(0,243,255,0.1), rgba(188,19,254,0.1)); cursor: pointer; }
+        .video-poster { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; transition: opacity 0.3s ease; }
+        .video-element { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 2; opacity: 0; transition: opacity 0.3s ease; }
+        .video-element.playing { opacity: 1; }
+        .play-btn { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 70px; height: 70px; background: rgba(0, 0, 0, 0.7); border: 2px solid var(--cyan-warp); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 10; transition: all 0.3s ease; cursor: pointer; }
+        .play-btn:hover { background: var(--cyan-warp); box-shadow: 0 0 30px var(--cyan-warp); transform: translate(-50%, -50%) scale(1.1); }
+        .play-btn::after { content: ''; width: 0; height: 0; border-left: 22px solid #fff; border-top: 14px solid transparent; border-bottom: 14px solid transparent; margin-left: 5px; }
+        .play-btn.hidden { opacity: 0; pointer-events: none; }
+        .pause-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; display: none; }
+        .video-container.playing .pause-overlay { display: block; }
+        .anim-box { width: 40px; height: 40px; position: relative; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .metric-grid { width: 100%; height: 100%; border: 1px solid var(--cyan-warp); border-radius: 50%; animation: distort 2s infinite ease-in-out; }
+        @keyframes distort { 0% { transform: scale(0.8) skewX(0deg); } 50% { transform: scale(1) skewX(20deg); } 100% { transform: scale(0.8) skewX(0deg); } }
+        .orbit-path { width: 30px; height: 30px; border: 1px dashed #fff; border-radius: 50%; animation: spin 4s linear infinite; position: relative; }
+        .sat { width: 6px; height: 6px; background: var(--mag-bubble); border-radius: 50%; position: absolute; top: -3px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 8px var(--mag-bubble); }
         @keyframes spin { to { transform: rotate(360deg); } }
-
-        .car-dot {
-            width: 8px;
-            height: 12px;
-            background: #fff;
-            border-radius: 2px;
-            position: absolute;
-            z-index: 2;
-        }
-
-        .safety-zone {
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--safe-amber);
-            border-radius: 50%;
-            opacity: 0;
-            animation: radar-ping 1.5s infinite;
-        }
-
-        @keyframes radar-ping {
-            0% { transform: scale(0.5); opacity: 1; }
-            100% { transform: scale(1.2); opacity: 0; }
-        }
-
-        .jet {
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 20px solid #fff;
-            transform: rotate(45deg);
-            position: absolute;
-        }
-
-        .shockwave {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            border-top: 2px solid var(--cyan-warp);
-            border-radius: 50%;
-            transform: rotate(-45deg);
-            animation: shock 0.15s infinite alternate;
-        }
-
-        @keyframes shock {
-            from { opacity: 0.3; }
-            to { opacity: 0.9; }
-        }
-
-        .wave {
-            width: 4px;
-            height: 4px;
-            background: var(--mag-bubble);
-            border-radius: 50%;
-            box-shadow: 12px 0 0 var(--cyan-warp), -12px 0 0 var(--cyan-warp);
-            animation: transmit 1s infinite alternate;
-        }
-
-        @keyframes transmit {
-            0% { transform: scaleX(1); }
-            100% { transform: scaleX(3); }
-        }
-
-        .hex {
-            width: 22px;
-            height: 22px;
-            background: transparent;
-            border: 1px solid #fff;
-            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-            animation: build 2s infinite;
-        }
-
-        @keyframes build {
-            0% { opacity: 0.2; background: transparent; }
-            50% { opacity: 1; background: rgba(0,243,255,0.3); }
-            100% { opacity: 0.2; background: transparent; }
-        }
-
-        /* Pricing Section */
-        .pricing-split {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .pricing-split { grid-template-columns: 1fr 1fr; }
-        }
-
-        .price-card {
-            background: rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            padding: 2.5rem;
-            text-align: center;
-            border-radius: 12px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .price-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(0,243,255,0.03) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .price-card:hover::before {
-            opacity: 1;
-        }
-
-        .price-card:hover {
-            transform: translateY(-8px);
-            background: rgba(20,20,30,0.9);
-        }
-
-        .price-card.ai-style {
-            border-top: 4px solid var(--cyan-warp);
-        }
-
-        .price-card.ai-style:hover {
-            box-shadow: 0 0 40px rgba(0, 243, 255, 0.2);
-        }
-
-        .price-card.space-style {
-            border-top: 4px solid var(--mag-bubble);
-        }
-
-        .price-card.space-style:hover {
-            box-shadow: 0 0 40px rgba(188, 19, 254, 0.2);
-        }
-
-        .domain-title {
-            font-family: 'Orbitron';
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 0.5rem;
-            color: #fff;
-        }
-
-        .tld-ai {
-            color: var(--cyan-warp);
-            text-shadow: 0 0 10px var(--cyan-warp);
-            animation: digital-flash 0.15s infinite alternate;
-        }
-
-        @keyframes digital-flash {
-            0% { opacity: 0.8; text-shadow: 0 0 5px var(--cyan-warp); }
-            100% { opacity: 1; text-shadow: 0 0 20px var(--cyan-warp); }
-        }
-
-        .tld-space {
-            color: var(--mag-bubble);
-            text-shadow: 0 0 15px var(--mag-bubble);
-            animation: deep-pulse 4s infinite ease-in-out;
-        }
-
-        @keyframes deep-pulse {
-            0% { opacity: 0.7; text-shadow: 0 0 10px var(--mag-bubble); }
-            50% { opacity: 1; text-shadow: 0 0 30px var(--mag-bubble); filter: hue-rotate(20deg); }
-            100% { opacity: 0.7; text-shadow: 0 0 10px var(--mag-bubble); }
-        }
-
-        .price-subtitle {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .price-tag {
-            font-family: 'Orbitron';
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 700;
-            color: #fff;
-            margin: 0.5rem 0;
-        }
-
-        .installment {
-            font-size: 1rem;
-            color: var(--cyan-warp);
-            margin-bottom: 1.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(0, 243, 255, 0.1);
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .btn {
-            display: block;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-family: 'Orbitron';
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-top: 1rem;
-            border: 2px solid;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            font-size: 0.9rem;
-        }
-
-        .btn-ai {
-            color: var(--cyan-warp);
-            border-color: var(--cyan-warp);
-            background: rgba(0, 243, 255, 0.05);
-        }
-
-        .btn-ai:hover {
-            background: var(--cyan-warp);
-            color: #000;
-            box-shadow: 0 0 30px var(--cyan-warp);
-        }
-
-        .btn-space {
-            color: var(--mag-bubble);
-            border-color: var(--mag-bubble);
-            background: rgba(188, 19, 254, 0.05);
-        }
-
-        .btn-space:hover {
-            background: var(--mag-bubble);
-            color: #000;
-            box-shadow: 0 0 30px var(--mag-bubble);
-        }
-
-        /* Bundle Box */
-        .bundle-box {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: linear-gradient(135deg, rgba(0,243,255,0.08), rgba(188,19,254,0.08));
-            border: 2px solid;
-            border-image: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble)) 1;
-            border-radius: 16px;
-            margin-bottom: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bundle-box::before {
-            content: 'BEST VALUE';
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: linear-gradient(135deg, var(--mag-bubble), var(--cyan-warp));
-            color: #000;
-            padding: 5px 40px;
-            font-family: 'Orbitron';
-            font-size: 0.7rem;
-            font-weight: 700;
-            transform: rotate(45deg);
-        }
-
-        .bundle-title {
-            font-family: 'Orbitron';
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .bundle-domains {
-            color: var(--text-gray);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .bundle-price {
-            font-family: 'Orbitron';
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            font-weight: 900;
-            background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 1rem 0;
-        }
-
-        .bundle-savings {
-            color: #00ff88;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .bundle-installment {
-            font-size: 1rem;
-            color: var(--text-gray);
-            margin-bottom: 2rem;
-        }
-
-        .bundle-cta {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            color: #555;
-            padding: 3rem 1rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .email-btn {
-            background: none;
-            border: 1px solid #444;
-            color: #888;
-            padding: 10px 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Rajdhani';
-            font-size: 1rem;
-            border-radius: 5px;
-        }
-
-        .email-btn:hover {
-            border-color: var(--cyan-warp);
-            color: var(--cyan-warp);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
-        }
-
-        .copyright {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #444;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .sector-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .logo-lockup {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-
-            .ship-viewport {
-                margin: 0.5rem 0;
-            }
-
-            .text-warp, .text-bubble {
-                font-size: clamp(2rem, 12vw, 4rem);
-            }
-
-            .cta-container {
-                flex-direction: column;
-                width: 100%;
-                padding: 0 1rem;
-            }
-
-            .cta-btn {
-                width: 100%;
-            }
-
-            .bundle-box::before {
-                display: none;
-            }
-        }
+        .car-dot { width: 8px; height: 12px; background: #fff; border-radius: 2px; position: absolute; z-index: 2; }
+        .safety-zone { width: 100%; height: 100%; border: 2px solid var(--safe-amber); border-radius: 50%; opacity: 0; animation: radar-ping 1.5s infinite; }
+        @keyframes radar-ping { 0% { transform: scale(0.5); opacity: 1; } 100% { transform: scale(1.2); opacity: 0; } }
+        .jet { width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 20px solid #fff; transform: rotate(45deg); position: absolute; }
+        .shockwave { position: absolute; width: 40px; height: 40px; border-top: 2px solid var(--cyan-warp); border-radius: 50%; transform: rotate(-45deg); animation: shock 0.15s infinite alternate; }
+        @keyframes shock { from { opacity: 0.3; } to { opacity: 0.9; } }
+        .wave { width: 4px; height: 4px; background: var(--mag-bubble); border-radius: 50%; box-shadow: 12px 0 0 var(--cyan-warp), -12px 0 0 var(--cyan-warp); animation: transmit 1s infinite alternate; }
+        @keyframes transmit { 0% { transform: scaleX(1); } 100% { transform: scaleX(3); } }
+        .hex { width: 22px; height: 22px; background: transparent; border: 1px solid #fff; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); animation: build 2s infinite; }
+        @keyframes build { 0% { opacity: 0.2; background: transparent; } 50% { opacity: 1; background: rgba(0,243,255,0.3); } 100% { opacity: 0.2; background: transparent; } }
+        .pricing-split { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 3rem; }
+        @media (min-width: 768px) { .pricing-split { grid-template-columns: 1fr 1fr; } }
+        .price-card { background: rgba(0,0,0,0.5); border: 1px solid #333; padding: 2.5rem; text-align: center; border-radius: 12px; transition: all 0.4s ease; position: relative; overflow: hidden; }
+        .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, transparent 0%, rgba(0,243,255,0.03) 100%); opacity: 0; transition: opacity 0.4s ease; }
+        .price-card:hover::before { opacity: 1; }
+        .price-card:hover { transform: translateY(-8px); background: rgba(20,20,30,0.9); }
+        .price-card.ai-style { border-top: 4px solid var(--cyan-warp); }
+        .price-card.ai-style:hover { box-shadow: 0 0 40px rgba(0, 243, 255, 0.2); }
+        .price-card.space-style { border-top: 4px solid var(--mag-bubble); }
+        .price-card.space-style:hover { box-shadow: 0 0 40px rgba(188, 19, 254, 0.2); }
+        .domain-title { font-family: 'Orbitron'; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem; color: #fff; }
+        .tld-ai { color: var(--cyan-warp); text-shadow: 0 0 10px var(--cyan-warp); animation: digital-flash 0.15s infinite alternate; }
+        @keyframes digital-flash { 0% { opacity: 0.8; text-shadow: 0 0 5px var(--cyan-warp); } 100% { opacity: 1; text-shadow: 0 0 20px var(--cyan-warp); } }
+        .tld-space { color: var(--mag-bubble); text-shadow: 0 0 15px var(--mag-bubble); animation: deep-pulse 4s infinite ease-in-out; }
+        @keyframes deep-pulse { 0% { opacity: 0.7; text-shadow: 0 0 10px var(--mag-bubble); } 50% { opacity: 1; text-shadow: 0 0 30px var(--mag-bubble); filter: hue-rotate(20deg); } 100% { opacity: 0.7; text-shadow: 0 0 10px var(--mag-bubble); } }
+        .price-subtitle { font-size: 0.85rem; color: #666; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        .price-tag { font-family: 'Orbitron'; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin: 0.5rem 0; }
+        .installment { font-size: 1rem; color: var(--cyan-warp); margin-bottom: 1.5rem; padding: 0.5rem 1rem; background: rgba(0, 243, 255, 0.1); border-radius: 20px; display: inline-block; }
+        .btn { display: block; padding: 1rem 2rem; text-decoration: none; font-family: 'Orbitron'; text-transform: uppercase; font-weight: 700; margin-top: 1rem; border: 2px solid; transition: all 0.3s ease; border-radius: 8px; font-size: 0.9rem; cursor: pointer; }
+        .btn-ai { color: var(--cyan-warp); border-color: var(--cyan-warp); background: rgba(0, 243, 255, 0.05); }
+        .btn-ai:hover { background: var(--cyan-warp); color: #000; box-shadow: 0 0 30px var(--cyan-warp); }
+        .btn-space { color: var(--mag-bubble); border-color: var(--mag-bubble); background: rgba(188, 19, 254, 0.05); }
+        .btn-space:hover { background: var(--mag-bubble); color: #000; box-shadow: 0 0 30px var(--mag-bubble); }
+        .bundle-box { text-align: center; padding: 3rem 2rem; background: linear-gradient(135deg, rgba(0,243,255,0.08), rgba(188,19,254,0.08)); border: 2px solid; border-image: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble)) 1; border-radius: 16px; margin-bottom: 4rem; position: relative; overflow: hidden; }
+        .bundle-box::before { content: 'BEST VALUE'; position: absolute; top: 15px; right: -30px; background: linear-gradient(135deg, var(--mag-bubble), var(--cyan-warp)); color: #000; padding: 5px 40px; font-family: 'Orbitron'; font-size: 0.7rem; font-weight: 700; transform: rotate(45deg); }
+        .bundle-title { font-family: 'Orbitron'; font-size: clamp(1.5rem, 3vw, 2rem); background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 0.5rem; }
+        .bundle-domains { color: var(--text-gray); font-size: 1rem; margin-bottom: 1rem; }
+        .bundle-price { font-family: 'Orbitron'; font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; background: linear-gradient(135deg, var(--cyan-warp), var(--mag-bubble)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; margin: 1rem 0; }
+        .bundle-savings { color: #00ff88; font-size: 1.1rem; margin-bottom: 0.5rem; }
+        .bundle-installment { font-size: 1rem; color: var(--text-gray); margin-bottom: 2rem; }
+        .bundle-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .offer-section { margin: 6rem auto 4rem; padding: 3rem; background: var(--hud-bg); border: 1px solid var(--border-color); backdrop-filter: blur(10px); border-radius: 12px; max-width: 800px; }
+        #offerForm input, #offerForm textarea { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: var(--text-white); padding: 1rem; margin-bottom: 1rem; border-radius: 5px; font-family: 'Rajdhani', sans-serif; font-size: 1rem; }
+        #offerForm .btn:disabled { background: #555; border-color: #555; color: #888; cursor: not-allowed; }
+        #form-status { height: 20px; margin-top: 1rem; text-align: center; font-family: 'Orbitron'; }
+        footer { text-align: center; color: #555; padding: 3rem 1rem; border-top: 1px solid rgba(255,255,255,0.05); }
+        .email-btn { background: none; border: 1px solid #444; color: #888; padding: 10px 25px; cursor: pointer; transition: all 0.3s ease; font-family: 'Rajdhani'; font-size: 1rem; border-radius: 5px; }
+        .email-btn:hover { border-color: var(--cyan-warp); color: var(--cyan-warp); box-shadow: 0 0 15px rgba(0, 243, 255, 0.3); }
+        .copyright { margin-top: 1.5rem; font-size: 0.85rem; color: #444; }
+        @media (max-width: 768px) { .sector-grid { grid-template-columns: 1fr; } .logo-lockup { flex-direction: column; gap: 0.5rem; } .ship-viewport { margin: 0.5rem 0; } .text-warp, .text-bubble { font-size: clamp(2rem, 12vw, 4rem); } .cta-container { flex-direction: column; width: 100%; padding: 0 1rem; } .cta-btn { width: 100%; } .bundle-box::before { display: none; } }
     </style>
 </head>
 <body>
     <canvas id="hyperspace-canvas"></canvas>
     <canvas id="particle-canvas"></canvas>
     <div class="vignette"></div>
-
     <div class="container">
-        <!-- Hero Section -->
         <header>
             <div class="logo-lockup">
                 <div class="text-warp">WARP</div>
-                <div class="ship-viewport">
-                    <div class="warp-field-emitter"></div>
-                    <div class="starship"></div>
-                </div>
+                <div class="ship-viewport"><div class="warp-field-emitter"></div><div class="starship"></div></div>
                 <div class="text-bubble">BUBBLE</div>
             </div>
             <p class="tagline">The Intelligence Layer for Speed & Spacetime</p>
             <p class="hero-desc">A unified framework for intelligent bubbles across physics, mobility, and beyond. Premium domain assets for visionary founders.</p>
-            
-            <div class="cta-container">
-                <a href="#pricing" class="cta-btn primary">View Pricing</a>
-                <a href="mailto:joshua369x@gmail.com" class="cta-btn secondary">Contact Us</a>
-            </div>
+            <div class="cta-container"><a href="#pricing" class="cta-btn primary">View Pricing</a><a href="#offer-form" class="cta-btn secondary">Make an Offer</a></div>
         </header>
 
-        <!-- Concepts Section -->
         <h2 class="section-title">The WarpBubble Ecosystem</h2>
-
         <div class="sector-grid">
-            <!-- 1. Warp Physics -->
-            <div class="sector-card">
-                <div class="card-header">
-                    <div class="anim-box"><div class="metric-grid"></div></div>
-                    <div class="card-title">Warp Physics</div>
-                </div>
-                <div class="video-container" onclick="toggleVideo(this)">
-                    <img src="https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Warp Physics" class="video-poster">
-                    <video class="video-element" muted loop playsinline preload="metadata">
-                        <source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-btn"></div>
-                    <div class="pause-overlay"></div>
-                </div>
-                <p class="card-desc"><strong>Alcubierre Metric AI.</strong> Simulating negative energy density for FTL propulsion modeling. Neural networks optimizing spacetime curvature for interstellar travel.</p>
-            </div>
-
-            <!-- 2. Orbital Logistics -->
-            <div class="sector-card">
-                <div class="card-header">
-                    <div class="anim-box"><div class="orbit-path"><div class="sat"></div></div></div>
-                    <div class="card-title">Orbital Logistics</div>
-                </div>
-                <div class="video-container" onclick="toggleVideo(this)">
-                    <img src="https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Orbital Logistics" class="video-poster">
-                    <video class="video-element" muted loop playsinline preload="metadata">
-                        <source src="https://videos.pexels.com/video-files/3141210/3141210-uhd_2560_1440_25fps.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-btn"></div>
-                    <div class="pause-overlay"></div>
-                </div>
-                <p class="card-desc">Managing the "Bubble" of orbital territory. <strong>Dyson Swarm coordination protocols.</strong> AI-orchestrated megastructure logistics.</p>
-            </div>
-
-            <!-- 3. FSD Safety Bubble -->
-            <div class="sector-card">
-                <div class="card-header">
-                    <div class="anim-box">
-                        <div class="car-dot"></div>
-                        <div class="safety-zone"></div>
-                    </div>
-                    <div class="card-title" style="color:var(--safe-amber)">FSD "Safety Bubble"</div>
-                </div>
-                <div class="video-container" onclick="toggleVideo(this)">
-                    <img src="https://images.pexels.com/photos/3972755/pexels-photo-3972755.jpeg?auto=compress&cs=tinysrgb&w=800" alt="FSD Safety" class="video-poster">
-                    <video class="video-element" muted loop playsinline preload="metadata">
-                        <source src="https://videos.pexels.com/video-files/2795401/2795401-uhd_2560_1440_25fps.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-btn"></div>
-                    <div class="pause-overlay"></div>
-                </div>
-                <p class="card-desc"><strong>Autonomous Mobility.</strong> Predictive "Safety Bubble" analytics for self-driving fleets. Zero-collision urban transport coordination.</p>
-            </div>
-
-            <!-- 4. Hypersonic Flight -->
-            <div class="sector-card">
-                <div class="card-header">
-                    <div class="anim-box">
-                        <div class="jet"></div>
-                        <div class="shockwave"></div>
-                    </div>
-                    <div class="card-title">Hypersonic Flight</div>
-                </div>
-                <div class="video-container" onclick="toggleVideo(this)">
-                    <img src="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hypersonic" class="video-poster">
-                    <video class="video-element" muted loop playsinline preload="metadata">
-                        <source src="https://videos.pexels.com/video-files/2611048/2611048-uhd_2560_1440_24fps.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-btn"></div>
-                    <div class="pause-overlay"></div>
-                </div>
-                <p class="card-desc"><strong>Supercavitation.</strong> AI shaping of the "Shockwave Bubble" for silent supersonic transport. Mach 5+ travel without sonic boom.</p>
-            </div>
-
-            <!-- 5. Quantum Mesh -->
-            <div class="sector-card">
-                <div class="card-header">
-                    <div class="anim-box"><div class="wave"></div></div>
-                    <div class="card-title">Quantum Mesh</div>
-                </div>
-                <div class="video-container" onclick="toggleVideo(this)">
-                    <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Quantum Mesh" class="video-poster">
-                    <video class="video-element" muted loop playsinline preload="metadata">
-                        <source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-btn"></div>
-                    <div class="pause-overlay"></div>
-                </div>
-                <p class="card-desc"><strong>Entanglement bubbles</strong> for instantaneous, unhackable interplanetary communications. Zero-latency networks for distributed AI.</p>
-            </div>
-
-            <!-- 6. Exotic Hulls -->
-            <div class="sector-card">
-                <div class="card-header">
-                    <div class="anim-box"><div class="hex"></div></div>
-                    <div class="card-title">Exotic Hulls</div>
-                </div>
-                <div class="video-container" onclick="toggleVideo(this)">
-                    <img src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Exotic Hulls" class="video-poster">
-                    <video class="video-element" muted loop playsinline preload="metadata">
-                        <source src="https://videos.pexels.com/video-files/4873158/4873158-uhd_2732_1440_25fps.mp4" type="video/mp4">
-                    </video>
-                    <div class="play-btn"></div>
-                    <div class="pause-overlay"></div>
-                </div>
-                <p class="card-desc"><strong>Metamaterial casings.</strong> Generative design of adaptive hulls for relativistic travel. Self-healing programmable matter.</p>
-            </div>
+            <div class="sector-card"><div class="card-header"><div class="anim-box"><div class="metric-grid"></div></div><div class="card-title">Warp Physics</div></div><div class="video-container" onclick="toggleVideo(this)"><img src="https://images.pexels.com/photos/956981/milky-way-starry-sky-night-sky-star-956981.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Warp Physics" class="video-poster"><video class="video-element" muted loop playsinline preload="metadata"><source src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4" type="video/mp4"></video><div class="play-btn"></div><div class="pause-overlay"></div></div><p class="card-desc"><strong>Alcubierre Metric AI.</strong> Simulating negative energy density for FTL propulsion modeling. Neural networks optimizing spacetime curvature for interstellar travel.</p></div>
+            <div class="sector-card"><div class="card-header"><div class="anim-box"><div class="orbit-path"><div class="sat"></div></div></div><div class="card-title">Orbital Logistics</div></div><div class="video-container" onclick="toggleVideo(this)"><img src="https://images.pexels.com/photos/41162/moon-landing-apollo-11-nasa-buzz-aldrin-41162.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Orbital Logistics" class="video-poster"><video class="video-element" muted loop playsinline preload="metadata"><source src="https://videos.pexels.com/video-files/3141210/3141210-uhd_2560_1440_25fps.mp4" type="video/mp4"></video><div class="play-btn"></div><div class="pause-overlay"></div></div><p class="card-desc">Managing the "Bubble" of orbital territory. <strong>Dyson Swarm coordination protocols.</strong> AI-orchestrated megastructure logistics.</p></div>
+            <div class="sector-card"><div class="card-header"><div class="anim-box"><div class="car-dot"></div><div class="safety-zone"></div></div><div class="card-title" style="color:var(--safe-amber)">FSD "Safety Bubble"</div></div><div class="video-container" onclick="toggleVideo(this)"><img src="https://images.pexels.com/photos/3972755/pexels-photo-3972755.jpeg?auto=compress&cs=tinysrgb&w=800" alt="FSD Safety" class="video-poster"><video class="video-element" muted loop playsinline preload="metadata"><source src="https://videos.pexels.com/video-files/2795401/2795401-uhd_2560_1440_25fps.mp4" type="video/mp4"></video><div class="play-btn"></div><div class="pause-overlay"></div></div><p class="card-desc"><strong>Autonomous Mobility.</strong> Predictive "Safety Bubble" analytics for self-driving fleets. Zero-collision urban transport coordination.</p></div>
+            <div class="sector-card"><div class="card-header"><div class="anim-box"><div class="jet"></div><div class="shockwave"></div></div><div class="card-title">Hypersonic Flight</div></div><div class="video-container" onclick="toggleVideo(this)"><img src="https://images.pexels.com/photos/46148/aircraft-jet-landing-cloud-46148.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Hypersonic" class="video-poster"><video class="video-element" muted loop playsinline preload="metadata"><source src="https://videos.pexels.com/video-files/2611048/2611048-uhd_2560_1440_24fps.mp4" type="video/mp4"></video><div class="play-btn"></div><div class="pause-overlay"></div></div><p class="card-desc"><strong>Supercavitation.</strong> AI shaping of the "Shockwave Bubble" for silent supersonic transport. Mach 5+ travel without sonic boom.</p></div>
+            <div class="sector-card"><div class="card-header"><div class="anim-box"><div class="wave"></div></div><div class="card-title">Quantum Mesh</div></div><div class="video-container" onclick="toggleVideo(this)"><img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Quantum Mesh" class="video-poster"><video class="video-element" muted loop playsinline preload="metadata"><source src="https://videos.pexels.com/video-files/3129957/3129957-uhd_2560_1440_30fps.mp4" type="video/mp4"></video><div class="play-btn"></div><div class="pause-overlay"></div></div><p class="card-desc"><strong>Entanglement bubbles</strong> for instantaneous, unhackable interplanetary communications. Zero-latency networks for distributed AI.</p></div>
+            <div class="sector-card"><div class="card-header"><div class="anim-box"><div class="hex"></div></div><div class="card-title">Exotic Hulls</div></div><div class="video-container" onclick="toggleVideo(this)"><img src="https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Exotic Hulls" class="video-poster"><video class="video-element" muted loop playsinline preload="metadata"><source src="https://videos.pexels.com/video-files/4873158/4873158-uhd_2732_1440_25fps.mp4" type="video/mp4"></video><div class="play-btn"></div><div class="pause-overlay"></div></div><p class="card-desc"><strong>Metamaterial casings.</strong> Generative design of adaptive hulls for relativistic travel. Self-healing programmable matter.</p></div>
         </div>
 
-        <!-- Pricing Section -->
         <h2 class="section-title" id="pricing">Acquire Premium Assets</h2>
-
         <div class="pricing-split">
-            <!-- AI Domain -->
-            <div class="price-card ai-style">
-                <div class="domain-title">warpbubble<span class="tld-ai">.ai</span></div>
-                <div class="price-subtitle">Software & Algorithms</div>
-                <div class="price-tag">$42,000</div>
-                <div class="installment">or 12 × $3,500/month</div>
-                <a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="btn btn-ai">Acquire .AI</a>
-            </div>
-
-            <!-- SPACE Domain -->
-            <div class="price-card space-style">
-                <div class="domain-title">warpbubble<span class="tld-space">.space</span></div>
-                <div class="price-subtitle">Infrastructure & Hardware</div>
-                <div class="price-tag">$12,000</div>
-                <div class="installment">or 12 × $1,000/month</div>
-                <a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="btn btn-space">Acquire .SPACE</a>
-            </div>
+            <div class="price-card ai-style"><div class="domain-title">warpbubble<span class="tld-ai">.ai</span></div><div class="price-subtitle">Software & Algorithms</div><div class="price-tag">$42,000</div><div class="installment">or 12 × $3,500/month</div><a href="https://www.afternic.com/domain/warpbubble.ai" target="_blank" class="btn btn-ai">Acquire .AI</a></div>
+            <div class="price-card space-style"><div class="domain-title">warpbubble<span class="tld-space">.space</span></div><div class="price-subtitle">Infrastructure & Hardware</div><div class="price-tag">$12,000</div><div class="installment">or 12 × $1,000/month</div><a href="https://www.afternic.com/domain/warpbubble.space" target="_blank" class="btn btn-space">Acquire .SPACE</a></div>
         </div>
 
-        <!-- Bundle -->
         <div class="bundle-box">
-            <h3 class="bundle-title">SINGULARITY BUNDLE</h3>
-            <p class="bundle-domains">warpbubble.ai + warpbubble.space</p>
-            <div class="bundle-price">$51,000</div>
-            <p class="bundle-savings">Save $3,000 (5.5% off)</p>
-            <p class="bundle-installment">or 12 payments of $4,250/month</p>
-            <div class="bundle-cta">
-                <a href="mailto:joshua369x@gmail.com?subject=WarpBubble%20Bundle%20Inquiry" class="cta-btn primary">Get Bundle</a>
-                <a href="mailto:joshua369x@gmail.com" class="cta-btn secondary">Make Offer</a>
-            </div>
+            <h3 class="bundle-title">SINGULARITY BUNDLE</h3><p class="bundle-domains">warpbubble.ai + warpbubble.space</p><div class="bundle-price">$51,000</div>
+            <p class="bundle-savings">Save $3,000 (5.5% off)</p><p class="bundle-installment">or 12 payments of $4,250/month</p>
+            <div class="bundle-cta"><a href="#offer-form" class="cta-btn primary">Get Bundle via Offer</a><a href="mailto:joshua369x@gmail.com?subject=WarpBubble%20Bundle%20Inquiry" class="cta-btn secondary">Contact Directly</a></div>
         </div>
 
-        <!-- Footer -->
+        <!-- Offer Form Section -->
+        <section class="offer-section" id="offer-form">
+            <h2 class="section-title" style="margin-top: 0;">Private Offer & Inquiry</h2>
+            <form id="offerForm" action="https://formspree.io/f/mvzbbvgo" method="POST">
+                <input type="text" name="name" placeholder="Your Name / Company" required>
+                <input type="email" name="email" placeholder="Your Contact Email" required>
+                <textarea name="message" rows="5" placeholder="Your message, offer, or bundle inquiry..." required></textarea>
+                <button type="submit" class="btn btn-ai" style="width: 100%;">Transmit Securely</button>
+                <div id="form-status"></div>
+            </form>
+        </section>
+
         <footer>
             <button class="email-btn" onclick="copyEmail(this)">📧 joshua369x@gmail.com (Click to Copy)</button>
             <p class="copyright">© 2026 WarpBubble Domains. Defining the Physics of Future Mobility.</p>
         </footer>
     </div>
-
     <script>
-        /* ========== STAR FIELD ENGINE ========== */
-        const starCanvas = document.getElementById('hyperspace-canvas');
-        const starCtx = starCanvas.getContext('2d');
+        const starCanvas = document.getElementById('hyperspace-canvas'), starCtx = starCanvas.getContext('2d');
         let starWidth, starHeight;
-
-        function resizeStarCanvas() {
-            starWidth = window.innerWidth;
-            starHeight = window.innerHeight;
-            starCanvas.width = starWidth;
-            starCanvas.height = starHeight;
-        }
-        window.addEventListener('resize', resizeStarCanvas);
-        resizeStarCanvas();
-
-        class Star {
-            constructor() { this.init(); }
-            init() {
-                this.x = (Math.random() - 0.5) * starWidth;
-                this.y = (Math.random() - 0.5) * starHeight;
-                this.z = Math.random() * starWidth;
-            }
-            update() {
-                this.z -= 12;
-                if (this.z <= 0) {
-                    this.init();
-                    this.z = starWidth;
-                }
-            }
-            draw() {
-                let sx = (this.x / this.z) * starWidth / 2 + starWidth / 2;
-                let sy = (this.y / this.z) * starHeight / 2 + starHeight / 2;
-                let r = (1 - this.z / starWidth) * 2;
-                let prevZ = this.z + 25;
-                let px = (this.x / prevZ) * starWidth / 2 + starWidth / 2;
-                let py = (this.y / prevZ) * starHeight / 2 + starHeight / 2;
-
-                starCtx.beginPath();
-                starCtx.moveTo(px, py);
-                starCtx.lineTo(sx, sy);
-                starCtx.strokeStyle = `rgba(180, 220, 255, ${1 - this.z / starWidth})`;
-                starCtx.lineWidth = r;
-                starCtx.stroke();
-            }
-        }
-
+        function resizeStarCanvas() { starWidth = window.innerWidth; starHeight = window.innerHeight; starCanvas.width = starWidth; starCanvas.height = starHeight; }
+        window.addEventListener('resize', resizeStarCanvas); resizeStarCanvas();
+        class Star { constructor() { this.init(); } init() { this.x = (Math.random() - 0.5) * starWidth; this.y = (Math.random() - 0.5) * starHeight; this.z = Math.random() * starWidth; } update() { this.z -= 12; if (this.z <= 0) { this.init(); this.z = starWidth; } } draw() { let sx = (this.x / this.z) * starWidth / 2 + starWidth / 2, sy = (this.y / this.z) * starHeight / 2 + starHeight / 2, r = (1 - this.z / starWidth) * 2, prevZ = this.z + 25, px = (this.x / prevZ) * starWidth / 2 + starWidth / 2, py = (this.y / prevZ) * starHeight / 2 + starHeight / 2; starCtx.beginPath(); starCtx.moveTo(px, py); starCtx.lineTo(sx, sy); starCtx.strokeStyle = `rgba(180, 220, 255, ${1 - this.z / starWidth})`; starCtx.lineWidth = r; starCtx.stroke(); } }
         let stars = Array.from({ length: 400 }, () => new Star());
-
-        function animateStars() {
-            starCtx.fillStyle = "rgba(2, 2, 5, 0.3)";
-            starCtx.fillRect(0, 0, starWidth, starHeight);
-            stars.forEach(s => { s.update(); s.draw(); });
-            requestAnimationFrame(animateStars);
-        }
+        function animateStars() { starCtx.fillStyle = "rgba(2, 2, 5, 0.3)"; starCtx.fillRect(0, 0, starWidth, starHeight); stars.forEach(s => { s.update(); s.draw(); }); requestAnimationFrame(animateStars); }
         animateStars();
-
-        /* ========== PARTICLE NETWORK ENGINE ========== */
-        const particleCanvas = document.getElementById('particle-canvas');
-        const pCtx = particleCanvas.getContext('2d');
-        let pWidth, pHeight;
-        let particles = [];
-
-        function resizeParticleCanvas() {
-            pWidth = window.innerWidth;
-            pHeight = window.innerHeight;
-            particleCanvas.width = pWidth;
-            particleCanvas.height = pHeight;
-            initParticles();
-        }
-        window.addEventListener('resize', resizeParticleCanvas);
-        resizeParticleCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * pWidth;
-                this.y = Math.random() * pHeight;
-                this.size = Math.random() * 2 + 0.5;
-                this.speedX = (Math.random() - 0.5) * 0.4;
-                this.speedY = (Math.random() - 0.5) * 0.4;
-                this.color = Math.random() > 0.5 ? 'rgba(0, 243, 255,' : 'rgba(188, 19, 254,';
-                this.alpha = Math.random() * 0.4 + 0.1;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-
-                if (this.x < 0) this.x = pWidth;
-                if (this.x > pWidth) this.x = 0;
-                if (this.y < 0) this.y = pHeight;
-                if (this.y > pHeight) this.y = 0;
-            }
-            draw() {
-                pCtx.beginPath();
-                pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                pCtx.fillStyle = this.color + this.alpha + ')';
-                pCtx.fill();
-            }
-        }
-
-        function initParticles() {
-            particles = [];
-            const count = Math.min(120, Math.floor(pWidth / 15));
-            for (let i = 0; i < count; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function connectParticles() {
-            const maxDist = 150;
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < maxDist) {
-                        const opacity = (1 - dist / maxDist) * 0.15;
-                        pCtx.beginPath();
-                        pCtx.strokeStyle = `rgba(0, 243, 255, ${opacity})`;
-                        pCtx.lineWidth = 0.5;
-                        pCtx.moveTo(particles[i].x, particles[i].y);
-                        pCtx.lineTo(particles[j].x, particles[j].y);
-                        pCtx.stroke();
-                    }
-                }
-            }
-        }
-
-        function animateParticles() {
-            pCtx.clearRect(0, 0, pWidth, pHeight);
-            particles.forEach(p => { p.update(); p.draw(); });
-            connectParticles();
-            requestAnimationFrame(animateParticles);
-        }
+        const particleCanvas = document.getElementById('particle-canvas'), pCtx = particleCanvas.getContext('2d');
+        let pWidth, pHeight, particles = [];
+        function resizeParticleCanvas() { pWidth = window.innerWidth; pHeight = window.innerHeight; particleCanvas.width = pWidth; particleCanvas.height = pHeight; initParticles(); }
+        window.addEventListener('resize', resizeParticleCanvas); resizeParticleCanvas();
+        class Particle { constructor() { this.x = Math.random() * pWidth; this.y = Math.random() * pHeight; this.size = Math.random() * 2 + 0.5; this.speedX = (Math.random() - 0.5) * 0.4; this.speedY = (Math.random() - 0.5) * 0.4; this.color = Math.random() > 0.5 ? 'rgba(0, 243, 255,' : 'rgba(188, 19, 254,'; this.alpha = Math.random() * 0.4 + 0.1; } update() { this.x += this.speedX; this.y += this.speedY; if (this.x < 0) this.x = pWidth; if (this.x > pWidth) this.x = 0; if (this.y < 0) this.y = pHeight; if (this.y > pHeight) this.y = 0; } draw() { pCtx.beginPath(); pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2); pCtx.fillStyle = this.color + this.alpha + ')'; pCtx.fill(); } }
+        function initParticles() { particles = []; const count = Math.min(120, Math.floor(pWidth / 15)); for (let i = 0; i < count; i++) { particles.push(new Particle()); } }
+        function connectParticles() { const maxDist = 150; for (let i = 0; i < particles.length; i++) { for (let j = i + 1; j < particles.length; j++) { const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y, dist = Math.sqrt(dx * dx + dy * dy); if (dist < maxDist) { const opacity = (1 - dist / maxDist) * 0.15; pCtx.beginPath(); pCtx.strokeStyle = `rgba(0, 243, 255, ${opacity})`; pCtx.lineWidth = 0.5; pCtx.moveTo(particles[i].x, particles[i].y); pCtx.lineTo(particles[j].x, particles[j].y); pCtx.stroke(); } } } }
+        function animateParticles() { pCtx.clearRect(0, 0, pWidth, pHeight); particles.forEach(p => { p.update(); p.draw(); }); connectParticles(); requestAnimationFrame(animateParticles); }
         animateParticles();
+        function toggleVideo(container) { const video = container.querySelector('.video-element'), playBtn = container.querySelector('.play-btn'), isPlaying = container.classList.contains('playing'); document.querySelectorAll('.video-container').forEach(vc => { if (vc !== container) { const otherVideo = vc.querySelector('.video-element'), otherBtn = vc.querySelector('.play-btn'); vc.classList.remove('playing'); otherVideo.pause(); otherVideo.classList.remove('playing'); otherBtn.classList.remove('hidden'); } }); if (isPlaying) { container.classList.remove('playing'); video.pause(); video.classList.remove('playing'); playBtn.classList.remove('hidden'); } else { container.classList.add('playing'); video.classList.add('playing'); playBtn.classList.add('hidden'); video.play().catch(err => { console.log('Video play failed:', err); container.classList.remove('playing'); video.classList.remove('playing'); playBtn.classList.remove('hidden'); }); } }
+        function copyEmail(btn) { navigator.clipboard.writeText("joshua369x@gmail.com").then(() => { const original = btn.innerText; btn.innerText = "✓ Copied!"; btn.style.borderColor = "#00ff88"; btn.style.color = "#00ff88"; setTimeout(() => { btn.innerText = original; btn.style.borderColor = ""; btn.style.color = ""; }, 2000); }); }
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const target = document.querySelector(this.getAttribute('href')); if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }); });
 
-        /* ========== VIDEO TOGGLE ========== */
-        function toggleVideo(container) {
-            const video = container.querySelector('.video-element');
-            const playBtn = container.querySelector('.play-btn');
-            const isPlaying = container.classList.contains('playing');
+        // AJAX Form Submission
+        const offerForm = document.getElementById('offerForm');
+        offerForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const data = new FormData(offerForm);
+            const submitButton = offerForm.querySelector('.btn');
+            const statusDiv = document.getElementById('form-status');
 
-            // Pause all other videos
-            document.querySelectorAll('.video-container').forEach(vc => {
-                if (vc !== container) {
-                    const otherVideo = vc.querySelector('.video-element');
-                    const otherBtn = vc.querySelector('.play-btn');
-                    vc.classList.remove('playing');
-                    otherVideo.pause();
-                    otherVideo.classList.remove('playing');
-                    otherBtn.classList.remove('hidden');
+            submitButton.disabled = true;
+            submitButton.textContent = "TRANSMITTING...";
+            statusDiv.textContent = "Establishing secure connection...";
+            statusDiv.style.color = "var(--cyan-warp)";
+
+            fetch(offerForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    statusDiv.textContent = "MESSAGE SENT SUCCESSFULLY";
+                    statusDiv.style.color = "var(--mag-bubble)";
+                    submitButton.textContent = "SENT";
+                    offerForm.reset();
+                } else {
+                    response.json().then(data => {
+                        statusDiv.textContent = data.errors ? data.errors.map(error => error.message).join(", ") : "ERROR: Please try again.";
+                        statusDiv.style.color = "#ff4d4d"; // Error red
+                        submitButton.disabled = false;
+                        submitButton.textContent = "Transmit Securely";
+                    });
                 }
-            });
-
-            if (isPlaying) {
-                // Pause current video
-                container.classList.remove('playing');
-                video.pause();
-                video.classList.remove('playing');
-                playBtn.classList.remove('hidden');
-            } else {
-                // Play video
-                container.classList.add('playing');
-                video.classList.add('playing');
-                playBtn.classList.add('hidden');
-                video.play().catch(err => {
-                    console.log('Video play failed:', err);
-                    container.classList.remove('playing');
-                    video.classList.remove('playing');
-                    playBtn.classList.remove('hidden');
-                });
-            }
-        }
-
-        /* ========== COPY EMAIL ========== */
-        function copyEmail(btn) {
-            navigator.clipboard.writeText("joshua369x@gmail.com").then(() => {
-                const original = btn.innerText;
-                btn.innerText = "✓ Copied!";
-                btn.style.borderColor = "#00ff88";
-                btn.style.color = "#00ff88";
+            }).catch(error => {
+                statusDiv.textContent = "NETWORK ERROR. Please try again.";
+                statusDiv.style.color = "#ff4d4d";
+                submitButton.disabled = false;
+                submitButton.textContent = "Transmit Securely";
+            }).finally(() => {
                 setTimeout(() => {
-                    btn.innerText = original;
-                    btn.style.borderColor = "";
-                    btn.style.color = "";
-                }, 2000);
-            });
-        }
-
-        /* ========== SMOOTH SCROLL ========== */
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                    statusDiv.textContent = "";
+                     if(submitButton.textContent === "SENT"){
+                        submitButton.disabled = false;
+                        submitButton.textContent = "Transmit Securely";
+                    }
+                }, 5000);
             });
         });
     </script>
